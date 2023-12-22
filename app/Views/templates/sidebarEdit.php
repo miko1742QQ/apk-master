@@ -23,6 +23,18 @@
                     <div data-i18n="Dashboard">Dashboard</div>
                 </a>
             </li>
+            <li class="menu-item ">
+                <a href="../management" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-credit-card"></i>
+                    <div data-i18n="Management">Management</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="../kim" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-gift"></i>
+                    <div data-i18n="KIM">KIM</div>
+                </a>
+            </li>
             <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons ti ti-server"></i>
@@ -43,11 +55,23 @@
             </li>
         <?php endif ?>
 
-        <?php if (in_groups('Karyawan')) : ?>
+        <?php if (in_groups('Konsumen')) : ?>
             <li class="menu-item">
                 <a href="../dashboard" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-smart-home"></i>
                     <div data-i18n="Dashboard">Dashboard</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="../management" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-credit-card"></i>
+                    <div data-i18n="Management">Management</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="../kim" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-gift"></i>
+                    <div data-i18n="KIM">KIM</div>
                 </a>
             </li>
         <?php endif ?>

@@ -59,6 +59,11 @@ $routes->put('/update_profile/(:num)', 'Home::update_profile/$1', ['filter' => '
 $routes->get('/delete_karyawan/(:num)', 'DaftarKaryawanController::delete_karyawan/$1', ['filter' => 'login']);
 $routes->get('/delete_pengguna/(:num)', 'DaftarPenggunaController::delete_pengguna/$1', ['filter' => 'login']);
 
+// Router
+$routes->get('/management', 'DaftarManagementController::index', ['filter' => 'login']);
+$routes->get('/kim', 'DaftarKIMController::index', ['filter' => 'login']);
+
+
 /*
 * --------------------------------------------------------------------
 * Additional Routing

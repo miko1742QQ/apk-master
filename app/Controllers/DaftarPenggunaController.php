@@ -88,7 +88,6 @@ class DaftarPenggunaController extends BaseController
                 ],
             ]
         ])) {
-            $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
@@ -160,7 +159,6 @@ class DaftarPenggunaController extends BaseController
                 'errors' => [],
             ]
         ])) {
-            $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 

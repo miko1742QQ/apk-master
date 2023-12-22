@@ -62,8 +62,7 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik        = $this->request->getVar('nik');
@@ -128,8 +127,7 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik    = $this->request->getVar('nik');
