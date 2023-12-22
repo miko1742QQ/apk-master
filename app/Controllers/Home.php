@@ -3,18 +3,24 @@
 namespace App\Controllers;
 
 use App\Models\DaftarKaryawanModel;
+use App\Models\DaftarKaryawanEditModel;
 use App\Models\DaftarPenggunaModel;
-
+use App\Models\DaftarPenggunaEditModel;
+use Myth\Auth\Password;
 
 class Home extends BaseController
 {
     protected $karyawanModel;
+    protected $karyawanEditModel;
     protected $penggunaModel;
+    protected $penggunaEditModel;
 
     public function __construct()
     {
         $this->karyawanModel = new DaftarKaryawanModel();
+        $this->karyawanEditModel = new DaftarKaryawanEditModel();
         $this->penggunaModel = new DaftarPenggunaModel();
+        $this->penggunaEditModel = new DaftarPenggunaEditModel();
     }
     public function index(): string
     {
@@ -40,7 +46,6 @@ class Home extends BaseController
 
     public function update_profile($nik)
     {
-        // validation input
         if (!$this->validate([
             'email' => [
                 'rules' => 'permit_empty|valid_emails|max_length[50]',
@@ -64,17 +69,16 @@ class Home extends BaseController
                 ],
             ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $fileFoto = $this->request->getFile('foto');
-        if ($fileFoto->getError() == 4) {
-            $namaFoto = $this->request->getVar('fotoLama');
-        } else {
+        if ($fileFoto->getError() != 4) {
             $namaFoto = $fileFoto->getRandomName();
             $fileFoto->move('img', $namaFoto);
             unlink('img/' . $this->request->getVar('fotoLama'));
+        } else {
+            $namaFoto = $this->request->getVar('fotoLama');
         }
 
         $email          = $this->request->getVar('email');
@@ -98,18 +102,22 @@ class Home extends BaseController
             $namaPasswordHash = Password::hash($this->request->getVar('password_hash'));
         }
 
-        $data = [
+        $dataKaryawan  = [
             'foto' => $namaFoto,
         ];
 
-        $data1 = [
+        $dataPengguna  = [
             'email' => $namaEmail,
             'password' => $namaPassword,
             'password_hash' => $namaPasswordHash,
         ];
 
-        $this->karyawanModel->update($nik, $data);
-        $this->penggunaModel->update($nik, $data1);
-        return redirect()->to(base_url('dashboard'))->with('status', 'PROFILE SUCCESSFULLY CHANGED');
+        // dd($dataKaryawan, $dataPengguna);
+
+        if ($this->karyawanEditModel->update($nik, $dataKaryawan) == true && $this->penggunaEditModel->update($nik, $dataPengguna) == true) {
+            return redirect()->to(base_url('dashboard'))->with('success', 'Data Profile Berhasil Diubah');
+        } else {
+            return redirect()->back()->with('error', 'Data Profile Gagal Diubah');
+        }
     }
 }
