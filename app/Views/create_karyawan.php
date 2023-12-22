@@ -18,7 +18,7 @@
 
     <div class="card-body">
         <!-- Basic Layout -->
-        <form method="POST" action="save_karyawan">
+        <form method="POST" action="save_karyawan" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="row pb-4">
                 <div class="mb-2">
@@ -34,6 +34,14 @@
                     <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Karyawan" value="<?= old('nama'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.nama'); ?>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="foto" class="form-label">Foto Profile</label>
+                    <input type="file" id="foto" name="foto" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" value="<?= old('foto'); ?>">
+                    <div class="invalid-feedback">
+                        <?= session('validation.foto'); ?>
                     </div>
                 </div>
             </div>

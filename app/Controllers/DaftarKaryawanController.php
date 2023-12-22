@@ -52,7 +52,16 @@ class DaftarKaryawanController extends BaseController
                     'required' => 'Nama Tidak Boleh Kosong',
                     'max_length' => 'Nama Maksimal 100 Karakter',
                 ],
-            ]
+            ],
+            'foto' => [
+                'rules' => 'required|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'required' => 'Foto Profil tidak boleh kosong',
+                    'max_size' => 'Ukuran Foto Profil tidak boleh lebih dari 1 MB',
+                    'is_image' => 'Berkas harus berupa gambar',
+                    'mime_in' => 'Berkas harus berupa gambar',
+                ],
+            ],
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
@@ -61,12 +70,19 @@ class DaftarKaryawanController extends BaseController
         $nik        = $this->request->getVar('nik');
         $nama       = $this->request->getVar('nama');
 
+        // ambil foto
+        $fileFoto = $this->request->getFile('foto');
+        // ambil nama file foto
+        $namaFoto = $fileFoto->getRandomName();
+        // pindahkan file ke folder img
+        $fileFoto->move('img', $namaFoto);
+
         $data = [
             'nik' => $nik,
             'nama_karyawan' => $nama,
+            'foto' => $namaFoto,
         ];
 
-        // dd($data);
         if ($this->karyawanModel->save($data) == true) {
             return redirect()->to(base_url('daftar_karyawan'))->with('success', 'Data Karyawan Berhasil Disimpan');
         } else {
@@ -102,6 +118,14 @@ class DaftarKaryawanController extends BaseController
                     'alpha_numeric_space' => 'Nama Hanya Bisa Diinputkan Dengan Huruf'
                 ],
             ],
+            'foto' => [
+                'rules' => 'max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]|permit_empty',
+                'errors' => [
+                    'max_size' => 'Ukuran Foto Profil tidak boleh lebih dari 1 MB',
+                    'is_image' => 'Berkas harus berupa gambar',
+                    'mime_in' => 'Berkas harus berupa gambar',
+                ],
+            ],
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
@@ -121,11 +145,19 @@ class DaftarKaryawanController extends BaseController
             $dataNama = $this->request->getVar('nama');
         }
 
-        $nama   = $this->request->getVar('nama');
+        $fileFoto = $this->request->getFile('foto');
+        if ($fileFoto->getError() == 4) {
+            $namaFoto = $this->request->getVar('fotoLama');
+        } else {
+            $namaFoto = $fileFoto->getRandomName();
+            $fileFoto->move('img', $namaFoto);
+            unlink('img/' . $this->request->getVar('fotoLama'));
+        }
 
         $data = [
             'nik' => $dataNik,
             'nama_karyawan' => $dataNama,
+            'foto' => $namaFoto,
         ];
 
         // dd($data);

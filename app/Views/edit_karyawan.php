@@ -18,14 +18,18 @@
 
     <div class="card-body">
         <!-- Basic Layout -->
-        <form method="POST" action="<?= base_url('update_karyawan/' . $datakaryawan['id_karyawan']); ?>">
+        <form method="POST" action="<?= base_url('update_karyawan/' . $datakaryawan['id_karyawan']); ?>" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="nikLama" value="<?= $datakaryawan['nik']; ?>">
             <input type="hidden" name="namaLama" value="<?= $datakaryawan['nama_karyawan']; ?>">
 
             <div class="row pb-4">
-                <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 col-12">
+                <div class="col-lg-2 col-xl-2 col-md-2 col-xs-12 col-sm-12 col-12" align="center">
+                    <img src="../img/<?= $datakaryawan["foto"]; ?>" alt="" style="width: 150px; height: 200px;">
+                </div>
+
+                <div class="col-lg-5 col-xl-5 col-md-5 col-xs-12 col-sm-12 col-12">
                     <h6><b>Data Lama</b></h6>
                     <div class="mb-2">
                         <label class="form-label" for="nikold"><b>NIK</b></label>
@@ -38,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 col-12">
+                <div class="col-lg-5 col-xl-5 col-md-5 col-xs-12 col-sm-12 col-12">
                     <h6><b>Data Baru</b></h6>
                     <div class="mb-2">
                         <label class="form-label" for="nik"><b>NIK Karyawan</b></label>
@@ -53,6 +57,14 @@
                         <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Karyawan" value="<?= old('nama'); ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.nama'); ?>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="foto" class="form-label">Foto Profile</label>
+                        <input type="file" id="foto" name="foto" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>">
+                        <div class="invalid-feedback">
+                            <?= session('validation.foto'); ?>
                         </div>
                     </div>
                 </div>

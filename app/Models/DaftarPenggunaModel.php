@@ -30,9 +30,20 @@ class DaftarPenggunaModel extends Model
     {
         return $this->db->table('users')
             ->distinct()
-            ->select('users.id, karyawan.nama_karyawan, users.username, role.nama_role, users.active')
+            ->select('users.id, users.username, users.active, karyawan.nama_karyawan, karyawan.foto, role.nama_role, ')
             ->join('role', 'role.id_role=users.id_role')
             ->join('karyawan', 'karyawan.nik=users.nik')
+            ->get()->getResultArray();
+    }
+
+    public function getPenggunaID($id)
+    {
+        return $this->db->table('users')
+            ->distinct()
+            ->select('users.id, users.username, users.active, karyawan.nama_karyawan, karyawan.foto, role.nama_role, ')
+            ->join('role', 'role.id_role=users.id_role')
+            ->join('karyawan', 'karyawan.nik=users.nik')
+            ->where('users.id', $id)
             ->get()->getResultArray();
     }
 }

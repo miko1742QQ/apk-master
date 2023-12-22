@@ -18,17 +18,23 @@ class Home extends BaseController
     }
     public function index(): string
     {
-        $data['title'] = 'Login';
         return view('welcome_message');
     }
 
     public function dashboard()
     {
+        $data['title'] = 'Dashboard';
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['users'] = $this->penggunaModel->getPengguna();
-        // dd($data);
-        $data['title'] = 'Dashboard';
         return view('dashboard', $data);
-        // return view('dashboard');
+    }
+
+    public function my_profile($nik)
+    {
+        $data['title'] = 'Profile Karyawan';
+        $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
+        $data['user'] = $this->penggunaModel->where(['nik' => $nik])->first();
+
+        return view('profile_user', $data);
     }
 }

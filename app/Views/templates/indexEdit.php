@@ -64,7 +64,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <?= $this->include('templates/navbar') ?>
+                <?= $this->include('templates/navbarEdit') ?>
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->

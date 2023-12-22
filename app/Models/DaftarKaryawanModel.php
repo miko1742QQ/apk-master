@@ -12,6 +12,7 @@ class DaftarKaryawanModel extends Model
     protected $allowedFields = [
         'id_karyawan',
         'nik',
-        'nama_karyawan'
+        'nama_karyawan',
+        'foto'
     ];
 }

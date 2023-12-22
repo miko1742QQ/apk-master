@@ -32,6 +32,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::dashboard', ['filter' => 'login']);
 $routes->post('/dashboard', 'Home::dashboard', ['filter' => 'login']);
 $routes->get('/dashboard', 'Home::dashboard', ['filter' => 'login']);
+$routes->get('/my_profile/(:num)', 'Home::my_profile/$1', ['filter' => 'login']);
 
 // Kumpulan Daftar
 $routes->get('/daftar_karyawan', 'DaftarKaryawanController::index', ['filter' => 'login']);
