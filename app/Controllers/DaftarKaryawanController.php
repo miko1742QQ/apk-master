@@ -54,17 +54,16 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
             'foto' => [
-                'rules' => 'required|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'rules' => 'max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
-                    'required' => 'Foto Profil tidak boleh kosong',
                     'max_size' => 'Ukuran Foto Profil tidak boleh lebih dari 1 MB',
                     'is_image' => 'Berkas harus berupa gambar',
                     'mime_in' => 'Berkas harus berupa gambar',
                 ],
             ],
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            // $validation = \Config\Services::validation();
+            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik        = $this->request->getVar('nik');
@@ -82,6 +81,8 @@ class DaftarKaryawanController extends BaseController
             'nama_karyawan' => $nama,
             'foto' => $namaFoto,
         ];
+
+        // dd($data);
 
         if ($this->karyawanModel->save($data) == true) {
             return redirect()->to(base_url('daftar_karyawan'))->with('success', 'Data Karyawan Berhasil Disimpan');
@@ -127,8 +128,8 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            // $validation = \Config\Services::validation();
+            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik    = $this->request->getVar('nik');

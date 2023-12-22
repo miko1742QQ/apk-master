@@ -53,6 +53,7 @@ $routes->get('/edit_pengguna/(:num)', 'DaftarPenggunaController::edit_pengguna/$
 //Kumpulan Update
 $routes->put('/update_karyawan/(:num)', 'DaftarKaryawanController::update_karyawan/$1', ['filter' => 'login']);
 $routes->put('/update_pengguna/(:num)', 'DaftarPenggunaController::update_pengguna/$1', ['filter' => 'login']);
+$routes->put('/update_profile/(:num)', 'Home::update_profile/$1', ['filter' => 'login']);
 
 // Daftar Delete
 $routes->get('/delete_karyawan/(:num)', 'DaftarKaryawanController::delete_karyawan/$1', ['filter' => 'login']);

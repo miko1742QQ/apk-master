@@ -23,6 +23,7 @@
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="nikLama" value="<?= $datakaryawan['nik']; ?>">
             <input type="hidden" name="namaLama" value="<?= $datakaryawan['nama_karyawan']; ?>">
+            <input type="hidden" name="fotoLama" value="<?= $datakaryawan['foto']; ?>">
 
             <div class="row pb-4">
                 <div class="col-lg-2 col-xl-2 col-md-2 col-xs-12 col-sm-12 col-12" align="center">
