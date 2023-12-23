@@ -7,6 +7,9 @@
         <strong>Maaf,</strong> <?= session()->getFlashdata('error'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert kesalahan
+    </script>
 <?php } ?>
 
 <?php if (session()->getFlashdata('success')) { ?>
@@ -14,13 +17,16 @@
         <strong>Berhasil,</strong> <?= session()->getFlashdata('success'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert keberhasilan
+    </script>
 <?php } ?>
 
 
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="py-2 mt-2">Daftar Karyawan</h4>
+            <h4 class="py-2 mt-2">Daftar Konsumen</h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
@@ -38,7 +44,7 @@
                     <tr class="first even" style="text-shadow: none; cursor: pointer;">
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NO</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NIK</th>
-                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA KARYAWAN</th>
+                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA KONSUMEN</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">AKSI</th>
                     </tr>
                 </thead>

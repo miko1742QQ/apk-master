@@ -61,6 +61,7 @@ $routes->get('/delete_pengguna/(:num)', 'DaftarPenggunaController::delete_penggu
 
 // Router
 $routes->get('/management', 'DaftarManagementController::index', ['filter' => 'login']);
+$routes->put('/save_management/(:num)', 'DaftarManagementController::save_management/$1', ['filter' => 'login']);
 $routes->get('/kim', 'DaftarKIMController::index', ['filter' => 'login']);
 
 

@@ -43,7 +43,7 @@
                 <ul class="menu-sub">
                     <li class="menu-item">
                         <a href="daftar_karyawan" class="menu-link">
-                            <div data-i18n="Karyawan">Karyawan</div>
+                            <div data-i18n="Konsumen">Konsumen</div>
                         </a>
                     </li>
                     <li class="menu-item">

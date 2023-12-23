@@ -138,11 +138,18 @@
           [25, 50, 75, 100, "All"]
         ]
       });
+      sembunyikanAlert();
     });
 
     function confirmToDelete(el) {
       $("#delete-button").attr("href", el.dataset.href);
       $("#confirm-dialog").modal('show');
+    }
+
+    function sembunyikanAlert() {
+      setTimeout(function() {
+        $('.alert').alert('close');
+      }, 5000);
     }
   </script>
 </body>
