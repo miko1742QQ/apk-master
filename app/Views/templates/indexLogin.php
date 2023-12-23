@@ -92,6 +92,16 @@
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
         }
+
+        $(document).ready(function() {
+            sembunyikanAlert();
+        });
+
+        function sembunyikanAlert() {
+            setTimeout(function() {
+                $('.alert').alert('close');
+            }, 5000);
+        }
     </script>
 </body>
 

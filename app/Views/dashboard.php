@@ -7,6 +7,9 @@
         <strong>Maaf,</strong> <?= session()->getFlashdata('error'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert kesalahan
+    </script>
 <?php } ?>
 
 <?php if (session()->getFlashdata('success')) { ?>
@@ -14,6 +17,9 @@
         <strong>Berhasil,</strong> <?= session()->getFlashdata('success'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert keberhasilan
+    </script>
 <?php } ?>
 
 <div class="row">

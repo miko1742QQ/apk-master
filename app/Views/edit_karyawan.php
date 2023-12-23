@@ -5,7 +5,7 @@
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="mt-2">Edit Data Karyawan</h4>
+            <h4 class="mt-2">Edit Data Konsumen</h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <label class="form-label" for="namaold"><b>Nama Karyawan</b></label>
+                        <label class="form-label" for="namaold"><b>Nama Konsumen</b></label>
                         <input type="text" id="namaold" name="namaold" class="form-control" value="<?= $datakaryawan['nama_karyawan'] ?>" disabled>
                     </div>
                 </div>
@@ -46,16 +46,16 @@
                 <div class="col-lg-5 col-xl-5 col-md-5 col-xs-12 col-sm-12 col-12">
                     <h6><b>Data Baru</b></h6>
                     <div class="mb-2">
-                        <label class="form-label" for="nik"><b>NIK Karyawan</b></label>
-                        <input type="text" id="nik" name="nik" maxlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Karyawan" value="<?= old('nik'); ?>">
+                        <label class="form-label" for="nik"><b>NIK Konsumen</b></label>
+                        <input type="text" id="nik" name="nik" maxlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Konsumen" value="<?= old('nik'); ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.nik'); ?>
                         </div>
                     </div>
 
                     <div class="mb-2">
-                        <label class="form-label" for="nama"><b>Nama Karyawan</b></label>
-                        <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Karyawan" value="<?= old('nama'); ?>">
+                        <label class="form-label" for="nama"><b>Nama Konsumen</b></label>
+                        <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Konsumen" value="<?= old('nama'); ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.nama'); ?>
                         </div>
