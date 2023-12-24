@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?= base_url(); ?>../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url(); ?>../../assets/css/demo.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>../../assets/css/antrian.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>../../assets/css/kim.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>../../assets/vendor/libs/node-waves/node-waves.css" />
@@ -49,122 +49,22 @@
     <script src="<?= base_url(); ?>../../assets/js/config.js"></script>
 </head>
 
-<style>
-    body,
-    html {
-        height: 100%;
-        margin: 0;
-        /* overflow: hidden; */
-    }
-
-    /* Konten Halaman Penuh */
-    #page-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    li {
-        width: 60px;
-        height: 60px;
-        overflow: visible;
-        border: 1px solid gray;
-        display: flex;
-        color: black;
-        background-color: white;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .result {
-        font-size: 100px;
-    }
-
-    .number-show {
-        background-color: #f8f8f8;
-        transform: scale(10.0);
-        transition: background-color 1.5s ease, transform 1.5s ease;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        font-size: 40px;
-        z-index: 1000;
-    }
-
-    .color {
-        width: 50px;
-        height: 50px;
-        margin: 3px;
-        cursor: pointer;
-        border: 1px solid transparent;
-        border-radius: 8px;
-        display: inline-block;
-    }
-
-    .resultColor {
-        font-size: 40px;
-        font-weight: bold;
-    }
-
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        backdrop-filter: blur(5px);
-    }
-
-    #bg-header {
-        background-color: #FFC5C5;
-    }
-
-    #bg-number {
-        background-color: #1F1717;
-    }
-
-    #result-border {
-        border: 5px solid #FFEBD8;
-        border-radius: 20px;
-        height: 50%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #bg-kim {
-        height: 100%;
-    }
-
-    marquee {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 10px;
-        margin-top: 20px;
-        color: #fff;
-        background-color: #1F1717;
-        font-size: 36px;
-        border-radius: 20px;
-    }
-</style>
-
 <body>
     <!-- Content -->
-    <?= $this->renderSection('page-content'); ?>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <div class="layout-page">
+                <div class="content-wrapper">
+                    <?= $this->renderSection('page-content'); ?>
+                </div>
+                <div class="content-backdrop fade"></div>
+            </div>
+        </div>
+        <div class="layout-overlay layout-menu-toggle"></div>
+        <div class="drag-target"></div>
+    </div>
     <!-- / Content -->
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 

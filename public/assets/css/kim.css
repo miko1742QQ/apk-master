@@ -1,0 +1,219 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+#page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li {
+    width: 57px;
+    height: 57px;
+    overflow: visible;
+    border: 1px solid gray;
+    display: flex;
+    color: black;
+    background-color: #FFC5C5;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.result {
+    font-size: 140px;
+}
+
+.number-show {
+    background-color: #f8f8f8;
+    transform: scale(10.0);
+    transition: background-color 1.5s ease, transform 1.5s ease;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    z-index: 1000;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.resultColor {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#result-border {
+    border: 5px solid #FFEBD8;
+    border-radius: 20px;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+marquee {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 40px;
+}
+
+#bagianatas {
+    background-color: #1F1717;
+}
+
+#bagianbawah {
+    padding-bottom: 20px;
+}
+
+#bagianbawahkiri {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFC5C5;
+    padding-bottom: 20px;
+}
+
+#bagianbawahkanan {
+    display: flex;
+    flex-direction: column;
+    background-color: #1F1717;
+    padding-bottom: 20px;
+}
+
+#isibagianbawahkanan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #1F1717;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+#bennerkonsumen {
+    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#pilihanwarnakupon {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#tombolaksi {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* Responsif terhadap ukuran layar kecil */
+@media screen and (max-width: 767px) {
+    li {
+        width: 40px;
+        height: 40px;
+        overflow: visible;
+        border: 1px solid gray;
+        display: flex;
+        color: black;
+        background-color: #FFC5C5;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: 5px;
+        font-weight: bold;
+    }
+
+    .result {
+        font-size: 80px;
+    }
+
+    .number-show {
+        background-color: #f8f8f8;
+        transform: scale(5.0);
+        transition: background-color 1.5s ease, transform 1.5s ease;
+        position: fixed;
+        top: 50%;
+        left: 45%;
+        font-size: 20px;
+        z-index: 1000;
+    }
+
+    .color {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .resultColor {
+        font-size: 20px;
+    }
+
+    .number-list {
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #result-border {
+        border: 5px solid #FFEBD8;
+        border-radius: 20px;
+        height: 150px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #bagianbawah {
+        padding-bottom: 10px;
+    }
+
+    #bennerkonsumen {
+        height: 120px;
+    }
+
+    #pilihanwarnakupon {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    #tombolaksi {
+        gap: 5px;
+    }
+}
