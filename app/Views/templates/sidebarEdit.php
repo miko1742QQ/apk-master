@@ -4,7 +4,7 @@
             <span class="app-brand-logo demo">
                 <img src="../../logopuskesmas.png" style="width: 100%; height: 100%;">
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">APK</span>
+            <span class="app-brand-text demo menu-text fw-bold">APK KIM</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">

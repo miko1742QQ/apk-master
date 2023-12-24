@@ -50,13 +50,17 @@
 </head>
 
 <style>
-    li {
-        width: 50px;
-        height: 50px;
+    body,
+    html {
         overflow: hidden;
+    }
+
+    li {
+        width: 60px;
+        height: 60px;
+        overflow: visible;
         border: 1px solid gray;
         display: flex;
-        background-color: gray;
         color: #111;
         justify-content: center;
         align-items: center;
@@ -77,6 +81,7 @@
         position: fixed;
         top: 50%;
         left: 50%;
+        font-size: 40px;
         z-index: 1000;
     }
 
@@ -105,7 +110,24 @@
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 999;
         backdrop-filter: blur(5px);
-        /* Efek blur latar belakang */
+    }
+
+    #bg-header {
+        background-color: #FFC5C5;
+    }
+    #bg-number {
+        background-color: #FFEBD8;
+    }
+
+    #result-border {
+        border: 5px solid #FFEBD8;
+        border-radius: 20px;
+        height: 50%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 </style>
 
@@ -143,23 +165,26 @@
         function showNumber(number) {
             var resultDiv = document.getElementById('result');
             var colorDiv = document.getElementById('resultColor');
-            colorDiv.innerHTML == '' ? resultDiv.innerHTML = '' :
+            colorDiv.innerHTML === '' ? resultDiv.innerHTML = '' :
                 resultDiv.innerHTML = number
         }
 
         var selectedColor = '';
+        var defaultStyles = {};
 
         function setColor(color) {
             selectedColor = color;
             var colorDiv = document.getElementById('resultColor');
+            var colorDiv1 = document.getElementById('resultColor1');
             var resultDiv = document.getElementById('result');
-            var colorDiv = document.getElementById('resultColor');
             var numberDiv = document.getElementById('result');
             var numberDivs = document.querySelectorAll('.number');
             switch (selectedColor) {
                 case 'red':
                     colorDiv.innerHTML = 'KUPON MERAH';
                     colorDiv.style.color = selectedColor;
+                    colorDiv1.innerHTML = 'KUPON MERAH';
+                    colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '';
@@ -171,6 +196,8 @@
                 case 'blue':
                     colorDiv.innerHTML = 'KUPON BIRU';
                     colorDiv.style.color = selectedColor;
+                    colorDiv1.innerHTML = 'KUPON BIRU';
+                    colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '';
@@ -182,6 +209,8 @@
                 case 'green':
                     colorDiv.innerHTML = 'KUPON HIJAU';
                     colorDiv.style.color = selectedColor;
+                    colorDiv1.innerHTML = 'KUPON HIJAU';
+                    colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '';
@@ -193,6 +222,8 @@
                 case 'yellow':
                     colorDiv.innerHTML = 'KUPON KUNING';
                     colorDiv.style.color = selectedColor;
+                    colorDiv1.innerHTML = 'KUPON KUNING';
+                    colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '';
@@ -203,8 +234,10 @@
                     break;
                 case 'white':
                     colorDiv.innerHTML = 'KUPON PUTIH';
-                    colorDiv.style.color = 'gray';
-                    resultDiv.style.color = 'gray';
+                    colorDiv.style.color = selectedColor;
+                    colorDiv1.innerHTML = 'KUPON PUTIH';
+                    colorDiv1.style.color = selectedColor;
+                    resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '';
                         div.style.color = '';
@@ -217,41 +250,55 @@
             }
         }
 
-        function changeColor(number) {
+        function toggleColor(number) {
             var numberDiv = document.getElementById('number' + number);
             var overlay = document.getElementById('overlay');
+            var resultDiv = document.getElementById('result');
+
+            if (!defaultStyles[number]) {
+                defaultStyles[number] = {
+                    backgroundColor: numberDiv.style.backgroundColor,
+                    transform: window.getComputedStyle(numberDiv).transform,
+                };
+            }
+
+            var isColorChanged = numberDiv.style.backgroundColor !== defaultStyles[number].backgroundColor;
+            console.log(numberDiv.style.backgroundColor);
+            console.log(defaultStyles[number].backgroundColor);
+            console.log(isColorChanged);
+
             if (selectedColor !== '') {
-                numberDiv.style.backgroundColor = selectedColor;
-                if (selectedColor !== 'white') {
-                    numberDiv.style.borderColor = selectedColor
-                    numberDiv.style.color = 'white';
+                if (isColorChanged) {
+                    numberDiv.style.backgroundColor = defaultStyles[number].backgroundColor;
+                    numberDiv.style.borderColor = defaultStyles[number].backgroundColor;
+                    resultDiv.innerHTML = '';
                 } else {
-                    numberDiv.style.borderColor = 'gray'
-                    numberDiv.style.color = 'gray';
+                    numberDiv.style.backgroundColor = selectedColor;
+                    numberDiv.style.borderColor = selectedColor;
+                    numberDiv.classList.add('number-show');
+
+                    overlay.style.display = 'block';
+
+                    setTimeout(function() {
+                        numberDiv.classList.remove('number-show');
+                        overlay.style.display = 'none';
+                    }, 5000);
                 }
-                numberDiv.classList.add('number-show');
-
-                overlay.style.display = 'block';
-
-                // Hapus class 'number-show' setelah animasi selesai
-                setTimeout(function() {
-                    numberDiv.classList.remove('number-show');
-                    overlay.style.display = 'none';
-                }, 5000);
             }
         }
 
         function clearColors() {
-            // Menghapus warna latar belakang pada semua kotak angka
             var colorDiv = document.getElementById('resultColor');
             var numberDiv = document.getElementById('result');
             var numberDivs = document.querySelectorAll('.number');
+            var resultDiv = document.getElementById('result');
             numberDivs.forEach(function(div) {
                 div.style.backgroundColor = '';
                 div.style.color = '';
                 div.style.borderColor = '';
-                colorDiv.innerHTML = '';
                 numberDiv.innerHTML = '';
+                colorDiv.innerHTML = '';
+                colorDiv.innerHTML === '' ? resultDiv.innerHTML = '' : resultDiv.innerHTML = number
             });
         }
 
