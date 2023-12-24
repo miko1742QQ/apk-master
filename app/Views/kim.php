@@ -25,13 +25,21 @@
             </div>
 
             <marquee>
-                a
+                <span style="font-size: x-large;">
+                    <?= $management['nama_management']; ?> hub : <?= $management['telp']; ?>
+                </span>
             </marquee>
 
             <div id="result-border">
                 <div class="resultColor" id="resultColor1"></div>
                 <div class="result" id="result"></div>
             </div>
+
+            <marquee>
+                <span style="font-size: x-large;">
+                    <?= $management['pesan']; ?>
+                </span>
+            </marquee>
             
             <div class="d-flex flex-row gap-2">
                 <a href="#" onclick="openModal()" class="btn btn-success btn-sm btn-icon-split mt-2" style="width: 50%;">
