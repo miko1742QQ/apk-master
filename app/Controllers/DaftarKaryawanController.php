@@ -54,8 +54,9 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
             'foto' => [
-                'rules' => 'max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'rules' => 'required|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
+                    'required' => 'Foto Tidak Boleh Kosong',
                     'max_size' => 'Ukuran Foto Profil tidak boleh lebih dari 1 MB',
                     'is_image' => 'Berkas harus berupa gambar',
                     'mime_in' => 'Berkas harus berupa gambar',

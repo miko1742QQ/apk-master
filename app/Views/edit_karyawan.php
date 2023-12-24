@@ -4,15 +4,8 @@
 
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
-        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+        <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
             <h4 class="mt-2">Edit Data Konsumen</h4>
-        </div>
-
-        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-            <a href="../daftar_karyawan" class="btn btn-success btn-sm btn-icon-split mt-2">
-                <span class="icon text-white-50"><i class="fas fa-list"></i></span>
-                <span class="text p-1">List</span>
-            </a>
         </div>
     </div>
 
@@ -71,7 +64,15 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-warning">Update</button>
+            <button type="submit" class="btn btn-outline-warning btn-sm btn-icon-split">
+                <span class="icon "><i class="fas fa-save"></i></span>
+                <span class="text p-1">Update</span>
+            </button>
+
+            <a href="../daftar_karyawan" class="btn btn-outline-secondary btn-sm btn-icon-split">
+                <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
+                <span class="text p-1">Kembali</span>
+            </a>
         </form>
     </div>
 </div>

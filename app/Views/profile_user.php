@@ -4,15 +4,8 @@
 
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
-        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+        <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
             <h4 class="mt-2">Profile <?= $datauser['nama_karyawan']; ?></h4>
-        </div>
-
-        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-            <a href="../" class="btn btn-success btn-sm btn-icon-split mt-2">
-                <span class="icon text-white-50"><i class="fas fa-list"></i></span>
-                <span class="text p-1">Kembali</span>
-            </a>
         </div>
     </div>
 
@@ -33,21 +26,21 @@
 
                     <div class="col-lg-9 col-xl-9 col-md-9 col-xs-12 col-sm-12 col-12">
                         <div class="mb-3">
-                            <label class="form-label"><b>NIK</b></label>
+                            <label for="nik" class="form-label"><b>NIK</b></label>
                             <input type="text" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" id="nik" name="nik" value="<?= $user['nik']; ?>" disabled>
                             <div class="invalid-feedback">
                                 <?= session('validation.nik'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label"><b>Nama Konsumen</b></label>
+                            <label for="nama_karyawan" class="form-label"><b>Nama Konsumen</b></label>
                             <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" disabled>
                             <div class="invalid-feedback">
                                 <?= session('validation.nama_karyawan'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label"><b>Email</b></label>
+                            <label for="email" class="form-label"><b>Email</b></label>
                             <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>">
                             <div class="invalid-feedback">
                                 <?= session('validation.email'); ?>
@@ -55,7 +48,7 @@
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password"><b>Password</b></label>
+                                <label class="form-label" for="password_hash"><b>Password</b></label>
                             </div>
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password_hash" class="form-control <?php if (session('validation.password_hash')) : ?> is-invalid <?php endif ?>" name="password_hash" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" value="<?= old('password_hash'); ?>">
@@ -74,7 +67,15 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-outline-primary btn-sm btn-icon-split">
+                    <span class="icon "><i class="fas fa-save"></i></span>
+                    <span class="text p-1">Update</span>
+                </button>
+
+                <a href="../" class="btn btn-outline-secondary btn-sm btn-icon-split">
+                    <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="text p-1">Kembali</span>
+                </a>
             </div>
         </form>
     </div>

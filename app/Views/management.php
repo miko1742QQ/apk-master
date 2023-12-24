@@ -30,16 +30,15 @@
             </div>
 
             <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-                <a href="../" class="btn btn-success btn-sm btn-icon-split mt-2">
-                    <span class="icon text-white-50"><i class="fas fa-list"></i></span>
-                    <span class="text p-1">Kembali</span>
-                </a>
-
-                <a href="#" class="btn btn-warning btn-sm btn-icon-split mt-2" data-bs-toggle="modal" data-bs-target="#updateModal">
-                    <span class="icon text-white-50"><i class="fas fa-edit"></i></span>
+                <a href="" class="btn btn-outline-warning btn-sm btn-icon-split mt-2" data-bs-toggle="modal" data-bs-target="#updateModal">
+                    <span class="icon "><i class="fas fa-edit"></i></span>
                     <span class="text p-1">Update</span>
                 </a>
 
+                <a href="../" class="btn btn-outline-secondary btn-sm btn-icon-split mt-2">
+                    <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="text p-1">Kembali</span>
+                </a>
             </div>
         </div>
 
@@ -73,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="false" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -123,7 +122,15 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-outline-primary btn-sm btn-icon-split">
+                                    <span class="icon "><i class="fas fa-save"></i></span>
+                                    <span class="text p-1">Save</span>
+                                </button>
+
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary btn-sm btn-icon-split">
+                                    <span class="icon "><i class="fas fa-times"></i></span>
+                                    <span class="text p-1">Close</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -137,8 +144,8 @@
             </div>
 
             <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-                <a href="../" class="btn btn-success btn-sm btn-icon-split mt-2">
-                    <span class="icon text-white-50"><i class="fas fa-list"></i></span>
+                <a href="../" class="btn btn-outline-secondary btn-sm btn-icon-split mt-2">
+                    <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
                     <span class="text p-1">Kembali</span>
                 </a>
             </div>

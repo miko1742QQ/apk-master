@@ -30,9 +30,9 @@
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-            <a href="../create_pengguna" class="btn btn-primary btn-sm btn-icon-split mt-2">
-                <span class="icon "><i class="fas fa-plus"></i></span>
-                <span class="p-1">New</span>
+            <a href="../create_pengguna" class="btn btn-outline-primary btn-sm btn-icon-split mt-2">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="p-1">Add Pengguna</span>
             </a>
         </div>
     </div>
@@ -63,29 +63,41 @@
                                 <?= ($value['active'] == 1) ? 'AKTIF' : 'TIDAK AKTIF' ?>
                             </td>
                             <td style="margin: 5px; padding: 3px; text-align: center;">
-                                <a href="<?= base_url('edit_pengguna/' . $value['id']) ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                <a href="<?= base_url('edit_pengguna/' . $value['id']) ?>" class="btn btn-outline-warning btn-sm btn-icon-split" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                     <span class='icon'><i class='fas fa-edit'></i></span>
+                                    <span class="p-1">Edit</span>
                                 </a>
-                                <a href="#" data-href="<?= base_url('delete_pengguna/' . $value['id']) ?>" onclick="confirmToDelete(this)" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                <a data-href="<?= base_url('delete_pengguna/' . $value['id']) ?>" class="btn btn-outline-danger btn-sm btn-icon-split" onclick="confirmToDelete(this)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
                                     <span class='icon'><i class='fas fa-trash'></i></span>
+                                    <span class="p-1">Delete</span>
                                 </a>
                             </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
-
-            <div id="confirm-dialog" class="modal fade" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade" id="confirm-dialog" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="false" data-bs-backdrop="static" data-bs-keyboard="false">
+                <div class="modal-dialog">
                     <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="updateModalLabel">Konfirmasi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                         <div class="modal-body d-flex flex-column">
                             <span><b>Apa kamu yakin ingin menghapus data ini?</b></span>
                             <span>Data akan hilang untuk selamanya dan tidak bisa dikembalikan</span>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Batalkan</button>
-                            <a href="#" role="button" id="delete-button" class="btn btn-danger">Hapus</a>
+                            <button type="submit" class="btn btn-outline-danger btn-sm btn-icon-split">
+                                <span class="icon "><i class="fas fa-trash"></i></span>
+                                <span class="text p-1">Yes, Delete</span>
+                            </button>
+
+                            <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary btn-sm btn-icon-split">
+                                <span class="icon "><i class="fas fa-times"></i></span>
+                                <span class="text p-1">Close</span>
+                            </button>
                         </div>
                     </div>
                 </div>
