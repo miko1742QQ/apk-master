@@ -2,7 +2,7 @@
     <div class="app-brand demo">
         <a href="/" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="../../logopuskesmas.png" style="width: 100%; height: 100%;">
+                <img src="../../logo.png" style="width: 100%; height: 100%;">
             </span>
             <span class="app-brand-text demo menu-text fw-bold">APK</span>
         </a>
@@ -31,7 +31,7 @@
                 <ul class="menu-sub">
                     <li class="menu-item">
                         <a href="daftar_karyawan" class="menu-link">
-                            <div data-i18n="Karyawan">Karyawan</div>
+                            <div data-i18n="Konsumen">Konsumen</div>
                         </a>
                     </li>
                     <li class="menu-item">

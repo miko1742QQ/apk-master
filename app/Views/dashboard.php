@@ -25,9 +25,9 @@
                     <div class="col-lg-10 col-sm-10 mb-4">
                         <h5>Username : <?= user()->email ?></h5>
                         <span>
-                            <?php if (in_groups('Admin')) : ?>Admin<?php endif ?>
+                            <?php if (in_groups('Administrator')) : ?>Administrator<?php endif ?>
                             <?php if (in_groups('Pimpinan')) : ?>Pimpinan<?php endif ?>
-                            <?php if (in_groups('Karyawan')) : ?>Karyawan<?php endif ?>
+                            <?php if (in_groups('Konsumen')) : ?>Konsumen<?php endif ?>
                         </span>
                     </div>
                     <div class="col-lg-2 col-sm-2 mb-4" align="right">

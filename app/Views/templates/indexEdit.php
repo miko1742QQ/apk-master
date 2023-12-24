@@ -11,7 +11,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../logopuskesmas.png" alt="" style="width: 20px;" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../logo.png" alt="" style="width: 20px;" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

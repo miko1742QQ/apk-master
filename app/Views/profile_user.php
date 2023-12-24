@@ -5,7 +5,7 @@
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="mt-2">Profile Karyawan</h4>
+            <h4 class="mt-2">Profile <?= $datauser['nama_karyawan']; ?></h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
@@ -33,21 +33,21 @@
 
                     <div class="col-lg-9 col-xl-9 col-md-9 col-xs-12 col-sm-12 col-12">
                         <div class="mb-3">
-                            <label class="form-label">NIK</label>
+                            <label class="form-label"><b>NIK</b></label>
                             <input type="text" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" id="nik" name="nik" value="<?= $user['nik']; ?>" disabled>
                             <div class="invalid-feedback">
                                 <?= session('validation.nik'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Nama Karyawan</label>
+                            <label class="form-label"><b>Nama Karyawan</b></label>
                             <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" disabled>
                             <div class="invalid-feedback">
                                 <?= session('validation.nama_karyawan'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
+                            <label class="form-label"><b>Email</b></label>
                             <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>">
                             <div class="invalid-feedback">
                                 <?= session('validation.email'); ?>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label" for="password"><b>Password</b></label>
                             </div>
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password_hash" class="form-control <?php if (session('validation.password_hash')) : ?> is-invalid <?php endif ?>" name="password_hash" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" value="<?= old('password_hash'); ?>">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto Profile</label>
+                            <label for="foto" class="form-label"><b>Foto Profile</b></label>
                             <input type="file" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" id="foto" name="foto">
                             <div class="invalid-feedback">
                                 <?= session('validation.foto'); ?>

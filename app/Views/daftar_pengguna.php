@@ -20,7 +20,7 @@
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="py-2 mt-2">Daftar Pengguna</h4>
+            <h4 class="py-2 mt-2">Daftar Konsumen</h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
@@ -37,7 +37,7 @@
                 <thead>
                     <tr class="first even" style="text-shadow: none; cursor: pointer;">
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NO</th>
-                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA KARYAWAN</th>
+                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA KONSUMEN</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">USERNAME</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">ROLE</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">STATUS</th>

@@ -5,7 +5,7 @@
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="mt-2">Tambah Data Karyawan</h4>
+            <h4 class="mt-2">Tambah Data Konsumen</h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
@@ -23,22 +23,22 @@
             <div class="row pb-4">
                 <div class="mb-2">
                     <label class="form-label" for="nik"><b>NIK</b></label>
-                    <input type="text" id="nik" name="nik" maxlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Karyawan" value="<?= old('nik'); ?>">
+                    <input type="text" id="nik" name="nik" maxlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Konsumen" value="<?= old('nik'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.nik'); ?>
                     </div>
                 </div>
 
                 <div class="mb-2">
-                    <label class="form-label" for="nama"><b>Nama Karyawan</b></label>
-                    <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Karyawan" value="<?= old('nama'); ?>">
+                    <label class="form-label" for="nama"><b>Nama Konsumen</b></label>
+                    <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Konsumen" value="<?= old('nama'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.nama'); ?>
                     </div>
                 </div>
 
                 <div class="mb-2">
-                    <label for="foto" class="form-label">Foto Profile</label>
+                    <label for="foto" class="form-label"><b>Foto Profile</b></label>
                     <input type="file" id="foto" name="foto" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" value="<?= old('foto'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.foto'); ?>
