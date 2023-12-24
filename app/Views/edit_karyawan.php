@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <label for="foto" class="form-label">Foto Profile</label>
+                        <label for="foto" class="form-label"><b>Foto Profile</b></label>
                         <input type="file" id="foto" name="foto" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.foto'); ?>

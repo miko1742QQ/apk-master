@@ -23,9 +23,9 @@
 
             <input type="hidden" id="force_pass_reset" name="force_pass_reset" value="0">
             <div class="mb-3">
-                <label for="nik">Karyawan</label>
+                <label for="nik">Konsumen</label>
                 <select name="nik" id="nik" class="form-select <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>">
-                    <option value="" disabled selected>Pilih Karyawan</option>
+                    <option value="" disabled selected>Pilih Konsumen</option>
                     <?php foreach ($karyawan as $value) { ?>
                         <option value="<?= $value['nik']; ?>" <?= old('nik') == $value['nik'] ? 'selected' : null ?>><?= $value['nik']; ?>|<?= $value['nama_karyawan']; ?></option>"
                     <?php } ?>
@@ -75,7 +75,7 @@
             <div class="mb-3">
                 <label for="active">Status</label>
                 <select name="active" class="form-select <?php if (session('validation.active')) : ?> is-invalid <?php endif ?>" id="active">
-                    <option value="" disabled selected>Pilih Status Karyawan</option>
+                    <option value="" disabled selected>Pilih Status Konsumen</option>
                     <option value="1">Aktif</option>
                     <option value="0">Tidak Aktif</option>
                 </select>

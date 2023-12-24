@@ -43,7 +43,7 @@
                 <thead>
                     <tr class="first even" style="text-shadow: none; cursor: pointer;">
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NO</th>
-                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA KARYAWAN</th>
+                        <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">NAMA PENGGUNA</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">USERNAME</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">ROLE</th>
                         <th style="text-align: center; vertical-align: middle; margin: 5px; padding: 7px;">STATUS</th>

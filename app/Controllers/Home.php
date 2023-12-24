@@ -15,7 +15,7 @@ class Home extends BaseController
     protected $karyawanEditModel;
     protected $penggunaModel;
     protected $penggunaEditModel;
-    protected $managementModel;    
+    protected $managementModel;
 
     public function __construct()
     {
@@ -36,6 +36,7 @@ class Home extends BaseController
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['users'] = $this->penggunaModel->getPengguna();
         $data['management'] = $this->managementModel->where(['nik' => user()->nik])->first();
+        $data['management1'] = $this->managementModel->findAll();
         return view('dashboard', $data);
     }
 
