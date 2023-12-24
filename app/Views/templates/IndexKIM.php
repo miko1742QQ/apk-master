@@ -11,7 +11,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../logopuskesmas.png" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,7 +52,17 @@
 <style>
     body,
     html {
-        overflow: hidden;
+        height: 100%;
+        margin: 0;
+        /* overflow: hidden; */
+    }
+
+    /* Konten Halaman Penuh */
+    #page-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     li {
@@ -61,7 +71,8 @@
         overflow: visible;
         border: 1px solid gray;
         display: flex;
-        color: #111;
+        color: black;
+        background-color: white;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
@@ -115,8 +126,9 @@
     #bg-header {
         background-color: #FFC5C5;
     }
+
     #bg-number {
-        background-color: #FFEBD8;
+        background-color: #1F1717;
     }
 
     #result-border {
@@ -128,6 +140,24 @@
         text-align: center;
         display: flex;
         flex-direction: column;
+    }
+
+    #bg-kim {
+        height: 100%;
+    }
+
+    marquee {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px;
+        margin-top: 20px;
+        color: #fff;
+        background-color: #1F1717;
+        font-size: 36px;
+        border-radius: 20px;
     }
 </style>
 

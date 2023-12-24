@@ -3,9 +3,9 @@
 <?= $this->section('page-content'); ?>
 
 <div class="card shadow bg">
-    <div class="row card-header p-0 m-0">
+    <div class="row card-header p-0 m-0" id="bg-kim">
         <div class="col-lg-4 col-xl-4 col-md-4 col-xs-4 col-sm-4 col-4" id="bg-header" align="center">
-            <h4 class="mt-2"> <?= $management['nama_management']; ?> </h4>
+            <marquee><?= $management['pesan']; ?></marquee>
         </div>
 
         <div class="col-lg-8 col-xl-8 col-md-8 col-xs-8 col-sm-8 col-8" id="bg-number" align="center">
@@ -13,7 +13,11 @@
         </div>
 
         <div class="col-lg-4 col-xl-4 col-md-4 col-xs-4 col-sm-4 col-4 d-flex flex-column justify-content-between pt-5 pb-5" id="bg-header" style="text-align: center;">
-            <div >
+            <div style="height: 200px; background-color: red; margin-bottom: 20px;">
+                <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" alt="" style="width: 100%; height: 100%">
+            </div>
+
+            <div>
                 <p>PILIH WARNA KUPON TERLEBIH DAHULU</p>
                 <div class="row justify-content-center d-flex">
                     <div class="color" onclick="setColor('red')" style="background-color: red;"></div>
@@ -24,23 +28,11 @@
                 </div>
             </div>
 
-            <marquee>
-                <span style="font-size: x-large;">
-                    <?= $management['nama_management']; ?> hub : <?= $management['telp']; ?>
-                </span>
-            </marquee>
-
             <div id="result-border">
                 <div class="resultColor" id="resultColor1"></div>
                 <div class="result" id="result"></div>
             </div>
 
-            <marquee>
-                <span style="font-size: x-large;">
-                    <?= $management['pesan']; ?>
-                </span>
-            </marquee>
-            
             <div class="d-flex flex-row gap-2">
                 <a href="#" onclick="openModal()" class="btn btn-success btn-sm btn-icon-split mt-2" style="width: 50%;">
                     <span class="icon text-green-50"><i class="fas fa-coffee"></i></span>
@@ -58,9 +50,19 @@
 
             <!-- Modal -->
             <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
-                    <p>Waktunya Istirahat!</p>
+                <div class="modal-content justify-content-between ">
+                    <div style="height: 200px; background-color: red; margin-bottom: 20px;">
+                        <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" alt="" style="width: 100%; height: 100%">
+                    </div>
+
+                    <div class="text-center d-flex flex-column" style="font-size: 24px;">
+                        <span><?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
+                        <span><?= $management["telp"] ?? 'Belum Diisi'  ?></span>
+                        <span><?= $management["alamat"] ?? 'Belum Diisi' ?></span>
+                        <span><?= $management["pesan"] ?? 'Belum Diisi' ?></span>
+                    </div>
+                    <h1><?= $management['pesan']; ?></h1>
+                    <button class="btn btn-warning" onclick="closeModal()" style="cursor: pointer; float: right;">Kembali</button>
                 </div>
             </div>
             <div id="overlay" class="overlay"></div>

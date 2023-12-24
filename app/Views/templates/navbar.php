@@ -59,7 +59,7 @@
                                     <small class="text-muted">
                                         <?php if (in_groups('Admin')) : ?>Admin<?php endif ?>
                                         <?php if (in_groups('Pimpinan')) : ?>Pimpinan<?php endif ?>
-                                        <?php if (in_groups('Karyawan')) : ?>Karyawan<?php endif ?>
+                                        <?php if (in_groups('Konsumen')) : ?>Konsumen<?php endif ?>
                                     </small>
                                 </div>
                             </div>
