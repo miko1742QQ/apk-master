@@ -10,11 +10,11 @@
                 <div class="app-brand justify-content-center mt-2">
                     <a href="/" class="app-brand-link gap-2">
                         <span class="app-brand-logo">
-                            <img src="../../logopuskesmas.png" alt="" style="width: 100px;">
+                            <img src="../../logo.png" alt="" style="width: 200px;">
                         </span>
                     </a>
                 </div>
-                <h4 class="mb-1" align="center">Welcome to (Nama APK) <br>Sistem Informasi APK</h4>
+                <h4 class="mb-1" align="center">Welcome to KIM <br>Sistem Informasi Permainan KIM</h4>
                 <p class="mb-4" align="center">Please sign-in to your account and start the adventure</p>
 
                 <?= view('Myth\Auth\Views\_message_block') ?>
