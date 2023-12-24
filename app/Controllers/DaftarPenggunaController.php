@@ -49,8 +49,8 @@ class DaftarPenggunaController extends BaseController
             'nik' => [
                 'rules' => 'required|is_unique[users.nik]',
                 'errors' => [
-                    'required' => 'Karyawan Harus Dipilih',
-                    'is_unique' => 'Karyawan Sudah Menjadi Pengguna Sebelumnya',
+                    'required' => 'Konsumen Harus Dipilih',
+                    'is_unique' => 'Konsumen Sudah Menjadi Pengguna Sebelumnya',
                 ],
             ],
             'id_role' => [
@@ -75,20 +75,19 @@ class DaftarPenggunaController extends BaseController
                 ],
             ],
             'password_hash' => [
-                'rules' => 'required|max_length[50]',
+                'rules' => 'required|max_length[100]',
                 'errors' => [
-                    'required' => 'Username Tidak Boleh Kosong',
-                    'max_length' => 'Username Maksimal 50 Karakter',
+                    'required' => 'Password Tidak Boleh Kosong',
+                    'max_length' => 'Password Maksimal 100 Karakter',
                 ],
             ],
             'active' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Status Karyawan Belum Dipilih',
+                    'required' => 'Status Konsumen Belum Dipilih',
                 ],
             ]
         ])) {
-            $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
@@ -160,7 +159,6 @@ class DaftarPenggunaController extends BaseController
                 'errors' => [],
             ]
         ])) {
-            $validation = \Config\Services::validation();
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 

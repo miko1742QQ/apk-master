@@ -45,8 +45,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-sm-6 mb-4">
-                        <h5>Total</h5>
-                        <span>0 Orang</span>
+                        <h5>Total Konsumen</h5>
+                        <span><?= count($management1) ?> Orang</span>
                     </div>
                     <div class="col-lg-6 col-sm-6 mb-4" align="right">
                         <i class="menu-icon tf-icons ti ti-user" style="font-size: 60px;"></i>

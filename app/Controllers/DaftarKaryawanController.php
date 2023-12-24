@@ -54,16 +54,16 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
             'foto' => [
-                'rules' => 'max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+                'rules' => 'required|max_size[foto,1024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
+                    'required' => 'Foto Tidak Boleh Kosong',
                     'max_size' => 'Ukuran Foto Profil tidak boleh lebih dari 1 MB',
                     'is_image' => 'Berkas harus berupa gambar',
                     'mime_in' => 'Berkas harus berupa gambar',
                 ],
             ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik        = $this->request->getVar('nik');
@@ -128,8 +128,7 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik    = $this->request->getVar('nik');

@@ -6,6 +6,7 @@ use App\Models\DaftarKaryawanModel;
 use App\Models\DaftarKaryawanEditModel;
 use App\Models\DaftarPenggunaModel;
 use App\Models\DaftarPenggunaEditModel;
+use App\Models\DaftarManagementModel;
 use Myth\Auth\Password;
 
 class Home extends BaseController
@@ -14,6 +15,7 @@ class Home extends BaseController
     protected $karyawanEditModel;
     protected $penggunaModel;
     protected $penggunaEditModel;
+    protected $managementModel;
 
     public function __construct()
     {
@@ -21,6 +23,7 @@ class Home extends BaseController
         $this->karyawanEditModel = new DaftarKaryawanEditModel();
         $this->penggunaModel = new DaftarPenggunaModel();
         $this->penggunaEditModel = new DaftarPenggunaEditModel();
+        $this->managementModel = new DaftarManagementModel();
     }
     public function index(): string
     {
@@ -32,6 +35,8 @@ class Home extends BaseController
         $data['title'] = 'Dashboard';
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['users'] = $this->penggunaModel->getPengguna();
+        $data['management'] = $this->managementModel->where(['nik' => user()->nik])->first();
+        $data['management1'] = $this->managementModel->findAll();
         return view('dashboard', $data);
     }
 

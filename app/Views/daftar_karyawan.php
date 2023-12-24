@@ -7,6 +7,9 @@
         <strong>Maaf,</strong> <?= session()->getFlashdata('error'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert kesalahan
+    </script>
 <?php } ?>
 
 <?php if (session()->getFlashdata('success')) { ?>
@@ -14,6 +17,9 @@
         <strong>Berhasil,</strong> <?= session()->getFlashdata('success'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <script>
+        sembunyikanAlert(); // Panggil fungsi untuk alert keberhasilan
+    </script>
 <?php } ?>
 
 
@@ -24,9 +30,9 @@
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
-            <a href="../create_karyawan" class="btn btn-primary btn-sm btn-icon-split mt-2">
-                <span class="icon "><i class="fas fa-plus"></i></span>
-                <span class="p-1">New</span>
+            <a href="../create_karyawan" class="btn btn-outline-primary btn-sm btn-icon-split mt-2">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="p-1">Add Konsumen</span>
             </a>
         </div>
     </div>
@@ -51,8 +57,9 @@
                             <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["nik"]; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["nama_karyawan"]; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: center;">
-                                <a href="<?= base_url('edit_karyawan/' . $value['id_karyawan']) ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+                                <a href="<?= base_url('edit_karyawan/' . $value['id_karyawan']) ?>" class="btn btn-outline-warning btn-sm btn-icon-split" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
                                     <span class='icon'><i class='fas fa-edit'></i></span>
+                                    <span class="p-1">Edit</span>
                                 </a>
                             </td>
                         </tr>

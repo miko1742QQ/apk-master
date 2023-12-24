@@ -43,7 +43,7 @@
             </li>
         <?php endif ?>
 
-        <?php if (in_groups('Karyawan')) : ?>
+        <?php if (in_groups('Konsumen')) : ?>
             <li class="menu-item">
                 <a href="../dashboard" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-smart-home"></i>
