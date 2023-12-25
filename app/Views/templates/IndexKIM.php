@@ -112,7 +112,7 @@
             var formattedTime = (hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
 
             // Update the HTML elements with the formatted date and time
-            document.getElementById('datetime-container').innerHTML = '<i class="far fa-clock"></i> ' + formattedTime + ' WIB' + ' <i class="far fa-calendar"></i> ' + formattedDate;
+            document.getElementById('datetime-container1').innerHTML = '<i class="far fa-clock"></i> ' + formattedTime + ' WIB' + ' <i class="far fa-calendar"></i> ' + formattedDate;
         }
 
         // Update date and time initially and set an interval to update every second

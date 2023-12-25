@@ -16,7 +16,7 @@
 
         <div class="row card-body p-0 m-0" id="bagianbawah">
             <div class="col-lg-4 col-xl-4 col-md-4 col-xs-12 col-sm-12 col-12" id="bagianbawahkiri">
-                <div style="text-align: center; font-weight: bold; padding-top: 10px; color: black;" id="datetime-container">
+                <div style="text-align: center; font-weight: bold; padding-top: 10px; color: black;" id="datetime-container1">
                     <span id="tanggal"></span>
                     <span id="waktu"></span>
                 </div>
