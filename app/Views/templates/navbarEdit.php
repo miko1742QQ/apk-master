@@ -10,7 +10,7 @@
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <div style="width: 300px; text-align: center;">
+                <div style="text-align: end;" id="datetime-container">
                     <span id="tanggal"></span>
                     <span id="waktu"></span>
                 </div>

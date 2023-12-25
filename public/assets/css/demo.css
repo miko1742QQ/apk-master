@@ -127,3 +127,18 @@
   text-align: center;
   margin-top: 1rem;
 }
+#datetime-container {
+  display: inline-block; /* To ensure it doesn't break the layout */
+  color: green;
+}
+
+#datetime-container.i {
+  color: green;
+}
+
+@media screen and (max-width: 767px) {
+  /* Hide the date and time on screens smaller than 768px (mobile) */
+  #datetime-container {
+    display: none;
+  }
+}
