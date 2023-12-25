@@ -144,6 +144,25 @@
       $("#delete-button").attr("href", el.dataset.href);
       $("#confirm-dialog").modal('show');
     }
+
+    function updateDateTime() {
+      var currentDate = new Date();
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1; // Months are zero-based
+      var year = currentDate.getFullYear();
+      var hours = currentDate.getHours();
+      var minutes = currentDate.getMinutes();
+      var seconds = currentDate.getSeconds();
+
+      var formattedDate = (day < 10 ? '0' + day : day) + '-' + (month < 10 ? '0' + month : month) + '-' + year;
+      var formattedTime = (hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+
+      document.getElementById('tanggal').textContent = 'Tanggal: ' + formattedDate;
+      document.getElementById('waktu').textContent = 'Waktu: ' + formattedTime;
+    }
+
+    updateDateTime(); // Initial update
+    setInterval(updateDateTime, 1000); // Update every second
   </script>
 </body>
 
