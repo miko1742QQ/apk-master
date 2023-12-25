@@ -10,14 +10,14 @@
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <div style="width: 300px; text-align: center;">
+                <div style="text-align: end;" id="datetime-container">
                     <span id="tanggal"></span>
                     <span id="waktu"></span>
                 </div>
             </li>
 
             <!-- Style Switcher -->
-            <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+            <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0" id="datetime-container">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <i class="ti ti-md"></i>
                 </a>

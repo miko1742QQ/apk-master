@@ -153,20 +153,24 @@
         function updateDateTime() {
             // Get current date and time
             var currentDate = new Date();
+            var day1 = currentDate.toLocaleString('default', {
+                weekday: 'long'
+            }); // Full day of the week
             var day = currentDate.getDate();
-            var month = currentDate.getMonth() + 1; // Months are zero-based
+            var month = currentDate.toLocaleString('default', {
+                month: 'long'
+            }); // Months are zero-based
             var year = currentDate.getFullYear();
             var hours = currentDate.getHours();
             var minutes = currentDate.getMinutes();
             var seconds = currentDate.getSeconds();
 
             // Format the date and time
-            var formattedDate = (day < 10 ? '0' + day : day) + '-' + (month < 10 ? '0' + month : month) + '-' + year;
+            var formattedDate = day1 + ', ' + (day < 10 ? '0' + day : day) + ' ' + (month < 10 ? '0' + month : month) + ' ' + year;
             var formattedTime = (hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
 
             // Update the HTML elements with the formatted date and time
-            document.getElementById('tanggal').textContent = 'Tanggal: ' + formattedDate;
-            document.getElementById('waktu').textContent = 'Waktu: ' + formattedTime;
+            document.getElementById('datetime-container').innerHTML = '<i class="far fa-clock"></i> ' + formattedTime + ' WIB' + ' <i class="far fa-calendar"></i> ' + formattedDate;
         }
 
         // Update date and time initially and set an interval to update every second
