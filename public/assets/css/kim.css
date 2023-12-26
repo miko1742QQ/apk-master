@@ -25,10 +25,12 @@ li {
     cursor: pointer;
     margin-top: 5px;
     font-weight: bold;
+    font-family: 'Arial Rounded MT';
 }
 
 .result {
-    font-size: 140px;
+    font-size: 100px;
+    font-family: 'Arial Rounded MT';
 }
 
 .number-show {
@@ -40,6 +42,7 @@ li {
     left: 50%;
     font-size: 40px;
     z-index: 1000;
+    font-family: 'Arial Rounded MT';
 }
 
 .color {
@@ -50,11 +53,41 @@ li {
     border: 1px solid transparent;
     border-radius: 8px;
     display: inline-block;
+    font-family: 'Arial Rounded MT';
+}
+
+.resultAturan1{
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #1F1717;
+    color: white;
+    font-weight: bold;
+    padding-top: 12px;
+    font-family: 'Arial Rounded MT';
+}
+
+.resultAturan{
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #1F1717;
+    color: white;
+    font-weight: bold;
+    padding-top: 12px;
+    font-family: 'Arial Rounded MT';
 }
 
 .resultColor {
     font-size: 40px;
     font-weight: bold;
+    font-family: 'Arial Rounded MT';
 }
 
 .overlay {
@@ -66,6 +99,7 @@ li {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    font-family: 'Arial Rounded MT';
 }
 
 #result-border {
@@ -77,6 +111,7 @@ li {
     text-align: center;
     display: flex;
     flex-direction: column;
+    font-family: 'Arial Rounded MT';
 }
 
 marquee {
@@ -86,14 +121,17 @@ marquee {
     box-sizing: border-box;
     color: #fff;
     font-size: 40px;
+    font-family: 'Arial Rounded MT';
 }
 
 #bagianatas {
     background-color: #1F1717;
+    font-family: 'Arial Rounded MT';
 }
 
 #bagianbawah {
     padding-bottom: 20px;
+    font-family: 'Arial Rounded MT';
 }
 
 #bagianbawahkiri {
@@ -102,6 +140,7 @@ marquee {
     justify-content: space-between;
     background-color: #FFC5C5;
     padding-bottom: 20px;
+    font-family: 'Arial Rounded MT';
 }
 
 #bagianbawahkanan {
@@ -109,6 +148,7 @@ marquee {
     flex-direction: column;
     background-color: #1F1717;
     padding-bottom: 20px;
+    font-family: 'Arial Rounded MT';
 }
 
 #isibagianbawahkanan {
@@ -118,24 +158,28 @@ marquee {
     background-color: #1F1717;
     padding-right: 20px;
     padding-top: 20px;
+    font-family: 'Arial Rounded MT';
 }
 
 #bennerkonsumen {
     height: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: 'Arial Rounded MT';
 }
 
 #pilihanwarnakupon {
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
+    font-family: 'Arial Rounded MT';
 }
 
 #tombolaksi {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-family: 'Arial Rounded MT';
 }
 
 /* Responsif terhadap ukuran layar kecil */
@@ -154,10 +198,12 @@ marquee {
         cursor: pointer;
         margin-top: 5px;
         font-weight: bold;
+    font-family: 'Arial Rounded MT';
     }
 
     .result {
         font-size: 80px;
+    font-family: 'Arial Rounded MT';
     }
 
     .number-show {
@@ -169,16 +215,19 @@ marquee {
         left: 45%;
         font-size: 20px;
         z-index: 1000;
+    font-family: 'Arial Rounded MT';
     }
 
     .color {
         width: 30px;
         height: 30px;
         font-size: 12px;
+    font-family: 'Arial Rounded MT';
     }
 
     .resultColor {
         font-size: 20px;
+    font-family: 'Arial Rounded MT';
     }
 
     .number-list {
@@ -187,6 +236,7 @@ marquee {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    font-family: 'Arial Rounded MT';
     }
 
     #result-border {
@@ -198,22 +248,27 @@ marquee {
         text-align: center;
         display: flex;
         flex-direction: column;
+    font-family: 'Arial Rounded MT';
     }
 
     #bagianbawah {
         padding-bottom: 10px;
+    font-family: 'Arial Rounded MT';
     }
 
     #bennerkonsumen {
         height: 120px;
+    font-family: 'Arial Rounded MT';
     }
 
     #pilihanwarnakupon {
         padding-top: 5px;
         padding-bottom: 5px;
+    font-family: 'Arial Rounded MT';
     }
 
     #tombolaksi {
         gap: 5px;
+    font-family: 'Arial Rounded MT';
     }
 }

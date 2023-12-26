@@ -12,6 +12,7 @@ class DaftarManagementModel extends Model
     protected $allowedFields = [
         'nik',
         'nama_management',
+        'nama_partner',
         'alamat',
         'telp',
         'foto',

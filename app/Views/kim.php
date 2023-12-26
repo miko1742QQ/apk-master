@@ -11,6 +11,7 @@
 
             <div class="col-lg-8 col-xl-8 col-md-8 col-xs-12 col-sm-12 col-12" align="center">
                 <div class="resultColor" id="resultColor"></div>
+                <div class="resultAturan" id="resultAturan" style="color: white; font-size: 26px; font-weight: bold;"></div>
             </div>
         </div>
 
@@ -21,8 +22,42 @@
                     <span id="waktu"></span>
                 </div>
 
-                <div id="bennerkonsumen">
-                    <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" alt="" style="width: 100%; height: 100%; border-radius: 10px;">
+                <div id="bennerkonsumen" class="slick-slider position-relative">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
 
                 <div id="result-border">
@@ -31,12 +66,27 @@
                 </div>
 
                 <div id="pilihanwarnakupon">
-                    <p><b>PILIH WARNA KUPON TERLEBIH DAHULU</b></p>
-                    <div class="color" onclick="setColor('red')" style="background-color: red;"></div>
-                    <div class="color" onclick="setColor('blue')" style="background-color: blue;"></div>
-                    <div class="color" onclick="setColor('green')" style="background-color: green;"></div>
-                    <div class="color" onclick="setColor('yellow')" style="background-color: yellow;"></div>
-                    <div class="color" onclick="setColor('white')" style="background-color: white;"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 col-12">
+                            <p><b>PILIH WARNA KUPON TERLEBIH DAHULU</b></p>
+                            <div class="color" onclick="setColor('red')" style="background-color: red;"></div>
+                            <div class="color" onclick="setColor('blue')" style="background-color: blue;"></div>
+                            <div class="color" onclick="setColor('green')" style="background-color: green;"></div>
+                            <div class="color" onclick="setColor('yellow')" style="background-color: yellow;"></div>
+                            <div class="color" onclick="setColor('white')" style="background-color: white;"></div>
+                        </div>
+                        <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 col-12">
+                            <p><b>ATURAN MAIN</b></p>
+                            <div class="resultAturan1" onclick="aturanmain('aturan1')">A</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan2')">B</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan3')">C</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan4')">D</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan5')">E</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan6')">F</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan7')">G</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan8')">H</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="tombolaksi">
@@ -56,19 +106,22 @@
 
                 <!-- Modal -->
                 <div id="myModal" class="modal">
-                    <div class="modal-content justify-content-between">
+                    <div class="modal-content justify-content-between" style="background-color: #FFF6DC;">
                         <div style="height: 200px; background-color: red; margin-bottom: 20px;">
                             <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" alt="" style="width: 100%; height: 100%">
                         </div>
 
                         <div class="text-center d-flex flex-column" style="font-size: 24px;">
-                            <span><?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
+                            <h1><?= $management["nama_management"] ?? 'Belum Diisi' ?></h1>
+                            <h2><?= $management["nama_partner"] ?? '' ?></h2>
                             <span><?= $management["telp"] ?? 'Belum Diisi'  ?></span>
                             <span><?= $management["alamat"] ?? 'Belum Diisi' ?></span>
-                            <span><?= $management["pesan"] ?? 'Belum Diisi' ?></span>
+                            <span>Dendang Pantun & Lagu Berhadiah</span>
+                            <span>Lengkapi Acara Anda Bersama Kami...!!!</span>
                         </div>
                         <div class="text-center">
                             <h1><?= $management['pesan']; ?></h1>
+                            <h4>© Aplikasi KIM Created By JAF V1 2023 (082287483950)</h4>
                         </div>
                         <button class="btn btn-warning" onclick="closeModal()" style="cursor: pointer; float: right;">Kembali</button>
                     </div>

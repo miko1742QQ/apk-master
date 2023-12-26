@@ -34,10 +34,16 @@ class DaftarManagementController extends BaseController
         // validation input
         if (!$this->validate([
             'nama_management' => [
-                'rules' => 'alpha_numeric_space|max_length[100]|permit_empty',
+                'rules' => 'max_length[100]|permit_empty',
                 'errors' => [
                     'max_length' => 'Nama Management Maksimal 100 Karakter',
-                    'alpha_numeric_space' => 'Nama Management Hanya Bisa Diinputkan Dengan Huruf'
+                ],
+            ],
+            'nama_partner' => [
+                'rules' => 'alpha_numeric_space|max_length[100]|permit_empty',
+                'errors' => [
+                    'max_length' => 'Nama Partner Maksimal 100 Karakter',
+                    'alpha_numeric_space' => 'Nama Partner Hanya Bisa Diinputkan Dengan Huruf'
                 ],
             ],
             'alamat' => [
@@ -80,6 +86,13 @@ class DaftarManagementController extends BaseController
             $dataNama = $this->request->getVar('nama_management');
         }
 
+        $namapartner       = $this->request->getVar('nama_partner');
+        if ($namapartner == null) {
+            $dataNamaPartner = $this->request->getVar('namaPartner');
+        } else {
+            $dataNamaPartner = $this->request->getVar('nama_partner');
+        }
+
         $alamat    = $this->request->getVar('alamat');
         if ($alamat == null) {
             $dataAlamat = $this->request->getVar('alamatLama');
@@ -111,6 +124,7 @@ class DaftarManagementController extends BaseController
 
         $data = [
             'nama_management' => $dataNama,
+            'nama_partner' => $dataNamaPartner,
             'alamat' => $dataAlamat,
             'telp' => $dataTelp,
             'pesan' => $dataPesan,

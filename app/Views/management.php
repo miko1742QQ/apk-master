@@ -48,6 +48,7 @@
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="nikLama" value="<?= $management['nik']; ?>">
                 <input type="hidden" name="namaLama" value="<?= $management['nama_management']; ?>">
+                <input type="hidden" name="namaPartner" value="<?= $management['nama_partner']; ?>">
                 <input type="hidden" name="telpLama" value="<?= $management['telp']; ?>">
                 <input type="hidden" name="alamatLama" value="<?= $management['alamat']; ?>">
                 <input type="hidden" name="pesanLama" value="<?= $management['pesan']; ?>">
@@ -60,12 +61,14 @@
                 <div class="row">
                     <div class="col-lg-2 col-xl-2 col-md-2 col-xs-2 col-sm-2 col-2 d-flex flex-column">
                         <span>Nama Management</span>
+                        <span>Nama Partner</span>
                         <span>No. Telp/Whatsapp</span>
                         <span>Alamat</span>
                         <span>Pesan</span>
                     </div>
                     <div class="col-lg-10 col-xl-10 col-md-10 col-xs-10 col-sm-10 col-10 d-flex flex-column">
                         <span>: <?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
+                        <span>: <?= $management["nama_partner"] ?? 'Belum Diisi' ?></span>
                         <span>: <?= $management["telp"] ?? 'Belum Diisi'  ?></span>
                         <span>: <?= $management["alamat"] ?? 'Belum Diisi' ?></span>
                         <span>: <?= $management["pesan"] ?? 'Belum Diisi' ?></span>
@@ -86,6 +89,14 @@
                                         <input type="text" id="nama_management" name="nama_management" maxlength="100" class="form-control <?php if (session('validation.nama_management')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan Nama Management Anda" value="<?= old('nama_management'); ?>">
                                         <div class="invalid-feedback">
                                             <?= session('validation.nama_management'); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label class="form-label" for="nama_partner"><b>Nama Partner</b></label>
+                                        <input type="text" id="nama_partner" name="nama_partner" maxlength="100" class="form-control <?php if (session('validation.nama_partner')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Partner Anda" value="<?= old('nama_partner'); ?>">
+                                        <div class="invalid-feedback">
+                                            <?= session('validation.nama_partner'); ?>
                                         </div>
                                     </div>
 

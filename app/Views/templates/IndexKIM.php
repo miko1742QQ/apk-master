@@ -92,6 +92,62 @@
     <script src="<?= base_url(); ?>../../assets/js/pages-auth.js"></script>
 
     <script>
+        $(document).ready(function() {
+            $('#bennerkonsumen').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000, // Adjust the speed as needed
+                dots: true // Show navigation dots
+            });
+        });
+
+        var selectedAturan = '';
+
+        function aturanmain(aturan) {
+            selectedAturan = aturan;
+            var resultAturan = document.getElementById('resultAturan');
+            var colorDiv = document.getElementById('resultColor');
+
+            switch (selectedAturan) {
+                case 'aturan1':
+                    resultAturan.innerHTML = '1 BARIS (5 ANGKA)';
+                    break;
+
+                case 'aturan2':
+                    resultAturan.innerHTML = '2 BARIS (10 ANGKA) BEBAS';
+                    break;
+
+                case 'aturan3':
+                    resultAturan.innerHTML = '2 BARIS (10 ANGKA) 1 KOLOM';
+                    break;
+
+                case 'aturan4':
+                    resultAturan.innerHTML = '3 BARIS (15 ANGKA) BEBAS';
+                    break;
+
+                case 'aturan5':
+                    resultAturan.innerHTML = '1 KOLOM + 1 BARIS (15 ANGKA)';
+                    break;
+
+                case 'aturan6':
+                    resultAturan.innerHTML = '4 BARIS (20 ANGKA) BEBAS';
+                    break;
+
+                case 'aturan7':
+                    resultAturan.innerHTML = '2 KOLOM (20 ANGKA)';
+                    break;
+
+                case 'aturan8':
+                    resultAturan.innerHTML = '3 KOLOM FULL (30 ANGKA)';
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
         function updateDateTime() {
             // Get current date and time
             var currentDate = new Date();
@@ -239,7 +295,7 @@
                     setTimeout(function() {
                         numberDiv.classList.remove('number-show');
                         overlay.style.display = 'none';
-                    }, 5000);
+                    }, 2000);
                 }
             }
         }
