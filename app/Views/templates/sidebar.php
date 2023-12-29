@@ -2,9 +2,9 @@
     <div class="app-brand demo">
         <a href="/" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="../../logo.png" style="width: 100%; height: 100%;">
+                <img src="../../Logo_Padang.png" style="width: 70%; height: 100%;">
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">APK</span>
+            <span class="app-brand-text demo menu-text fw-bold">SEKOLAH</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -28,6 +28,75 @@
                     <i class="menu-icon tf-icons ti ti-id-badge"></i>
                     <div data-i18n="Profile Sekolah">Profile Sekolah</div>
                 </a>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div data-i18n="GTK">GTK</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="daftar_pendik" class="menu-link">
+                            <div data-i18n="Pendik">Pendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="daftar_tendik" class="menu-link">
+                            <div data-i18n="Tendik">Tendik</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item ">
+                <a href="daftar_siswa" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div data-i18n="Siswa">Siswa</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="absensi" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-calendar"></i>
+                    <div data-i18n="Absensi">Absensi</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="bukuinduksiswa" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-book"></i>
+                    <div data-i18n="Buku Induk Siswa">Buku Induk Siswa</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-printer"></i>
+                    <div data-i18n="Laporan">Laporan</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="laporan_tendik" class="menu-link">
+                            <div data-i18n="Tendik">Tendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_pendik" class="menu-link">
+                            <div data-i18n="Pendik">Pendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_siswa" class="menu-link">
+                            <div data-i18n="Siswa">Siswa</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_absensi" class="menu-link">
+                            <div data-i18n="Absensi">Absensi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_bukuinduk" class="menu-link">
+                            <div data-i18n="Buku Induk">Buku Induk</div>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -61,6 +130,75 @@
                     <i class="menu-icon tf-icons ti ti-id-badge"></i>
                     <div data-i18n="Profile Sekolah">Profile Sekolah</div>
                 </a>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div data-i18n="GTK">GTK</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="daftar_pendik" class="menu-link">
+                            <div data-i18n="Pendik">Pendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="daftar_tendik" class="menu-link">
+                            <div data-i18n="Tendik">Tendik</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item ">
+                <a href="daftar_siswa" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div data-i18n="Siswa">Siswa</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="absensi" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-calendar"></i>
+                    <div data-i18n="Absensi">Absensi</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="bukuinduksiswa" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-book"></i>
+                    <div data-i18n="Buku Induk Siswa">Buku Induk Siswa</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-printer"></i>
+                    <div data-i18n="Laporan">Laporan</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="laporan_tendik" class="menu-link">
+                            <div data-i18n="Tendik">Tendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_pendik" class="menu-link">
+                            <div data-i18n="Pendik">Pendik</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_siswa" class="menu-link">
+                            <div data-i18n="Siswa">Siswa</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_absensi" class="menu-link">
+                            <div data-i18n="Absensi">Absensi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="laporan_bukuinduk" class="menu-link">
+                            <div data-i18n="Buku Induk">Buku Induk</div>
+                        </a>
+                    </li>
+                </ul>
             </li>
         <?php endif ?>
     </ul>

@@ -11,7 +11,7 @@
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../logo.png" alt="Your Description Here" style="width: 20px;" />
+  <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>../../Logo_Padang.png" alt="Your Description Here" style="width: 20px;" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

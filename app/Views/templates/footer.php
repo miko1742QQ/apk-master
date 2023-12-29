@@ -2,7 +2,7 @@
   <div class="container-xxl">
     <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
       <div>
-        © APK .... Created By JAF
+        © APK SEKOLAH v.1 Created By JAF
         <script>
           document.write(new Date().getFullYear());
         </script>

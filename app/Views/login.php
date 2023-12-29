@@ -10,7 +10,7 @@
                 <div class="app-brand justify-content-center mt-2">
                     <a href="/" class="app-brand-link gap-2">
                         <span class="app-brand-logo">
-                            <img src="../../logo.png" alt="" style="width: 100px;">
+                            <img src="../../Logo_Padang.png" alt="" style="width: 100px;">
                         </span>
                     </a>
                 </div>
