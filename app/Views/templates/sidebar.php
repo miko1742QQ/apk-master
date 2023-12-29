@@ -19,13 +19,19 @@
         <?php if (in_groups('Administrator') || in_groups('Pimpinan')) : ?>
             <li class="menu-item ">
                 <a href="dashboard" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                    <i class="menu-icon tf-icons ti ti-dashboard"></i>
                     <div data-i18n="Dashboard">Dashboard</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="profile_sekolah" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-id-badge"></i>
+                    <div data-i18n="Profile Sekolah">Profile Sekolah</div>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons ti ti-server"></i>
+                    <i class="menu-icon tf-icons ti ti-settings"></i>
                     <div data-i18n="Setting">Setting</div>
                 </a>
                 <ul class="menu-sub">
@@ -46,8 +52,14 @@
         <?php if (in_groups('Konsumen')) : ?>
             <li class="menu-item">
                 <a href="dashboard" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                    <i class="menu-icon tf-icons ti ti-dashboard"></i>
                     <div data-i18n="Dashboard">Dashboard</div>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a href="profile_sekolah" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-id-badge"></i>
+                    <div data-i18n="Profile Sekolah">Profile Sekolah</div>
                 </a>
             </li>
         <?php endif ?>
