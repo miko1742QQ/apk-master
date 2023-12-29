@@ -190,8 +190,8 @@
             var colorDiv = document.getElementById('resultColor');
             var colorDiv1 = document.getElementById('resultColor1');
             var resultDiv = document.getElementById('result');
-            var numberDiv = document.getElementById('result');
             var numberDivs = document.querySelectorAll('.number');
+
             switch (selectedColor) {
                 case 'red':
                     colorDiv.innerHTML = 'KUPON MERAH';
@@ -200,10 +200,10 @@
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = '';
+                        div.style.backgroundColor = selectedColor;
                         div.style.color = '';
-                        div.style.borderColor = '';
-                        numberDiv.innerHTML = '';
+                        div.style.borderColor = 'gray';
+                        resultDiv.innerHTML = '';
                     });
                     break;
                 case 'blue':
@@ -213,10 +213,10 @@
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = '';
-                        div.style.color = '';
-                        div.style.borderColor = '';
-                        numberDiv.innerHTML = '';
+                        div.style.backgroundColor = selectedColor;
+                        div.style.color = 'white';
+                        div.style.borderColor = 'gray';
+                        resultDiv.innerHTML = '';
                     });
                     break;
                 case 'green':
@@ -226,10 +226,10 @@
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = '';
-                        div.style.color = '';
-                        div.style.borderColor = '';
-                        numberDiv.innerHTML = '';
+                        div.style.backgroundColor = selectedColor;
+                        div.style.color = 'white';
+                        div.style.borderColor = 'gray';
+                        resultDiv.innerHTML = '';
                     });
                     break;
                 case 'yellow':
@@ -239,10 +239,10 @@
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = '';
+                        div.style.backgroundColor = selectedColor;
                         div.style.color = '';
-                        div.style.borderColor = '';
-                        numberDiv.innerHTML = '';
+                        div.style.borderColor = 'gray';
+                        resultDiv.innerHTML = '';
                     });
                     break;
                 case 'white':
@@ -252,10 +252,10 @@
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = '';
+                        div.style.backgroundColor = selectedColor;
                         div.style.color = '';
-                        div.style.borderColor = '';
-                        numberDiv.innerHTML = '';
+                        div.style.borderColor = 'gray';
+                        resultDiv.innerHTML = '';
                     });
                     break;
                 default:
@@ -265,39 +265,56 @@
 
         function toggleColor(number) {
             var numberDiv = document.getElementById('number' + number);
-            var overlay = document.getElementById('overlay');
-            var resultDiv = document.getElementById('result');
-
-            if (!defaultStyles[number]) {
-                defaultStyles[number] = {
-                    backgroundColor: numberDiv.style.backgroundColor,
-                    transform: window.getComputedStyle(numberDiv).transform,
-                };
-            }
-
-            var isColorChanged = numberDiv.style.backgroundColor !== defaultStyles[number].backgroundColor;
-            console.log(numberDiv.style.backgroundColor);
-            console.log(defaultStyles[number].backgroundColor);
-            console.log(isColorChanged);
 
             if (selectedColor !== '') {
-                if (isColorChanged) {
-                    numberDiv.style.backgroundColor = defaultStyles[number].backgroundColor;
-                    numberDiv.style.borderColor = defaultStyles[number].backgroundColor;
-                    resultDiv.innerHTML = '';
-                } else {
-                    numberDiv.style.backgroundColor = selectedColor;
-                    numberDiv.style.borderColor = selectedColor;
-                    numberDiv.classList.add('number-show');
-
-                    overlay.style.display = 'block';
-
-                    setTimeout(function() {
-                        numberDiv.classList.remove('number-show');
-                        overlay.style.display = 'none';
-                    }, 2000);
+                switch (selectedColor) {
+                    case 'red':
+                        numberDiv.style.backgroundColor = 'white';
+                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.color = '';
+                        break;
+                    case 'blue':
+                        numberDiv.style.backgroundColor = 'white';
+                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.color = '';
+                        break;
+                    case 'green':
+                        numberDiv.style.backgroundColor = 'white';
+                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.color = '';
+                        break;
+                    case 'yellow':
+                        numberDiv.style.backgroundColor = 'red';
+                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.color = '';
+                        break;
+                    case 'white':
+                        numberDiv.style.backgroundColor = 'red';
+                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.color = '';
+                        break;
+                    default:
+                        break;
                 }
+                numberDiv.classList.add('number-show');
+
+                var overlay = document.getElementById('overlay');
+                overlay.style.display = 'block';
+
+                setTimeout(function() {
+                    numberDiv.classList.remove('number-show');
+                    overlay.style.display = 'none';
+                }, 2000);
             }
+        }
+
+        function resetColor(number) {
+            var numberDiv = document.getElementById('number' + number);
+            numberDiv.style.backgroundColor = '';
+            numberDiv.style.borderColor = '';
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            event.preventDefault(); // Menghentikan default action dari event (mematikan konteks menu)
         }
 
         function clearColors() {

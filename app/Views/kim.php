@@ -33,19 +33,19 @@
                             <div class="carousel-item active">
                                 <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                    <span><?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                    <span><?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5><?= $management["nama_management"] ?? 'Belum Diisi' ?></h5>
+                                    <span><?= $management["nama_management"] ?? 'Belum Diisi' ?></span>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                 <div id="isibagianbawahkanan">
                     <ul class="number-list">
                         <?php foreach ($numbers as $count => $number) : ?>
-                            <li class="number" onclick="showNumber(<?= $number; ?>); toggleColor(<?= $number; ?>);" id="number<?= $number; ?>">
+                            <li class="number" oncontextmenu="resetColor(<?= $number; ?>);" onclick="showNumber(<?= $number; ?>); toggleColor(<?= $number; ?>);" id="number<?= $number; ?>">
                                 <?= $number; ?>
                             </li>
                             <?php if (($count + 1) % 10 == 0 && ($count + 1) / 10 < 9) : ?>
