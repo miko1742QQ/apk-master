@@ -30,8 +30,9 @@ li {
 }
 
 .result {
-    font-size: 100px;
+    font-size: 95px;
     font-family: 'Arial Rounded MT';
+    padding: 0px;
 }
 
 .number-show {
