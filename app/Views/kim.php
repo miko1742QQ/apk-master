@@ -30,6 +30,7 @@
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
+                            <marquee class="position-absolute top-0 right-0 zindex-4" style="font-size: 24px;"><?= $management['nama_partner']; ?></marquee>
                             <div class="carousel-item active">
                                 <img src="../benner/<?= $management["foto"] ?? 'Belum Diisi' ?>" class="d-block w-100" style="height: 150px; border-radius: 10px">
                                 <div class="carousel-caption d-none d-md-block">
@@ -69,7 +70,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 col-12">
                             <p><b>PILIH WARNA KUPON TERLEBIH DAHULU</b></p>
-                            <div class="color" onclick="setColor('red')" style="background-color: red;"></div>
+                            <div class="color" onclick="setColor('red')" style="background-color: #FF6AC2;"></div>
                             <div class="color" onclick="setColor('blue')" style="background-color: blue;"></div>
                             <div class="color" onclick="setColor('green')" style="background-color: green;"></div>
                             <div class="color" onclick="setColor('yellow')" style="background-color: yellow;"></div>
@@ -85,6 +86,7 @@
                             <div class="resultAturan1" onclick="aturanmain('aturan6')">F</div>
                             <div class="resultAturan1" onclick="aturanmain('aturan7')">G</div>
                             <div class="resultAturan1" onclick="aturanmain('aturan8')">H</div>
+                            <div class="resultAturan1" onclick="aturanmain('aturan9')">I</div>
                         </div>
                     </div>
                 </div>

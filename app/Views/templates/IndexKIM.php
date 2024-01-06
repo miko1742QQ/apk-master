@@ -139,6 +139,10 @@
                     break;
 
                 case 'aturan8':
+                    resultAturan.innerHTML = '5 BARIS (25 ANGKA)';
+                    break;
+
+                case 'aturan9':
                     resultAturan.innerHTML = '3 KOLOM FULL (30 ANGKA)';
                     break;
 
@@ -195,12 +199,12 @@
             switch (selectedColor) {
                 case 'red':
                     colorDiv.innerHTML = 'KUPON MERAH';
-                    colorDiv.style.color = selectedColor;
+                    colorDiv.style.color = '#FF6AC2';
                     colorDiv1.innerHTML = 'KUPON MERAH';
-                    colorDiv1.style.color = selectedColor;
-                    resultDiv.style.color = selectedColor;
+                    colorDiv1.style.color = '#FF6AC2';
+                    resultDiv.style.color = '#FF6AC2';
                     numberDivs.forEach(function(div) {
-                        div.style.backgroundColor = selectedColor;
+                        div.style.backgroundColor = '#FF6AC2';
                         div.style.color = '';
                         div.style.borderColor = 'gray';
                         resultDiv.innerHTML = '';
@@ -270,7 +274,7 @@
                 switch (selectedColor) {
                     case 'red':
                         numberDiv.style.backgroundColor = 'white';
-                        numberDiv.style.borderColor = selectedColor;
+                        numberDiv.style.borderColor = '#FF6AC2';
                         numberDiv.style.color = '';
                         break;
                     case 'blue':
@@ -310,8 +314,39 @@
 
         function resetColor(number) {
             var numberDiv = document.getElementById('number' + number);
-            numberDiv.style.backgroundColor = '';
-            numberDiv.style.borderColor = '';
+
+            if (selectedColor !== '') {
+                switch (selectedColor) {
+                    case 'red':
+                        numberDiv.style.backgroundColor = '#FF6AC2';
+                        numberDiv.style.borderColor = 'gray';
+                        numberDiv.style.color = 'black';
+                        break;
+                    case 'blue':
+                        numberDiv.style.backgroundColor = selectedColor;
+                        numberDiv.style.borderColor = 'gray';
+                        numberDiv.style.color = 'white';
+                        break;
+                    case 'green':
+                        numberDiv.style.backgroundColor = selectedColor;
+                        numberDiv.style.borderColor = 'gray';
+                        numberDiv.style.color = 'white';
+                        break;
+                    case 'yellow':
+                        numberDiv.style.backgroundColor = selectedColor;
+                        numberDiv.style.borderColor = 'gray';
+                        numberDiv.style.color = 'black';
+                        break;
+                    case 'white':
+                        numberDiv.style.backgroundColor = selectedColor;
+                        numberDiv.style.borderColor = 'gray';
+                        numberDiv.style.color = 'black';
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             var resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '';
             event.preventDefault(); // Menghentikan default action dari event (mematikan konteks menu)
