@@ -16,15 +16,23 @@
             <div class="row pb-4">
                 <div class="mb-2">
                     <label class="form-label" for="nik"><b>NIK</b></label>
-                    <input type="text" id="nik" name="nik" maxlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Konsumen" value="<?= old('nik'); ?>">
+                    <input type="text" id="nik" name="nik" maxlength="16" minlength="16" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan NIK Konsumen" value="<?= old('nik'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.nik'); ?>
                     </div>
                 </div>
 
                 <div class="mb-2">
-                    <label class="form-label" for="nama"><b>Nama Konsumen</b></label>
-                    <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Konsumen" value="<?= old('nama'); ?>">
+                    <label class="form-label" for="npsn"><b>NPSN Sekolah</b></label>
+                    <input type="text" id="npsn" name="npsn" maxlength="8" minlength="8" class="form-control <?php if (session('validation.npsn')) : ?> is-invalid <?php endif ?>" placeholder="Masukan NPSN" value="<?= old('npsn'); ?>">
+                    <div class="invalid-feedback">
+                        <?= session('validation.npsn'); ?>
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label" for="nama"><b>Nama Sekolah</b></label>
+                    <input type="text" id="nama" name="nama" maxlength="100" class="form-control <?php if (session('validation.nama')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Nama Sekolah" value="<?= old('nama'); ?>">
                     <div class="invalid-feedback">
                         <?= session('validation.nama'); ?>
                     </div>

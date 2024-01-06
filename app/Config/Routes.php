@@ -59,6 +59,34 @@ $routes->put('/update_profile/(:num)', 'Home::update_profile/$1', ['filter' => '
 $routes->get('/delete_karyawan/(:num)', 'DaftarKaryawanController::delete_karyawan/$1', ['filter' => 'login']);
 $routes->get('/delete_pengguna/(:num)', 'DaftarPenggunaController::delete_pengguna/$1', ['filter' => 'login']);
 
+// Menu Aplikasi
+$routes->get('/profile_sekolah', 'DaftarProfileSekolahController::index', ['filter' => 'login']);
+$routes->get('/daftar_pendik', 'DaftarPendikController::index', ['filter' => 'login']);
+$routes->get('/daftar_tendik', 'DaftarTendikController::index', ['filter' => 'login']);
+$routes->get('/daftar_siswa', 'DaftarSiswaController::index', ['filter' => 'login']);
+$routes->get('/absensi', 'DaftarAbsensiController::index', ['filter' => 'login']);
+$routes->get('/bukuinduksiswa', 'DaftarBukuIndukController::index', ['filter' => 'login']);
+
+$routes->get('/create_pendik', 'DaftarPendikController::create_pendik', ['filter' => 'login']);
+$routes->get('/create_tendik', 'DaftarTendikController::create_tendik', ['filter' => 'login']);
+$routes->get('/create_siswa', 'DaftarSiswaController::create_siswa', ['filter' => 'login']);
+
+$routes->get('/save_pendik', 'DaftarPendikController::save_pendik', ['filter' => 'login']);
+$routes->get('/save_tendik', 'DaftarTendikController::save_tendik', ['filter' => 'login']);
+$routes->get('/save_siswa', 'DaftarSiswaController::save_siswa', ['filter' => 'login']);
+
+$routes->get('/edit_pendik/(:num)', 'DaftarPendikController::edit_pendik/$1', ['filter' => 'login']);
+$routes->get('/edit_tendik/(:num)', 'DaftarTendikController::edit_tendik/$1', ['filter' => 'login']);
+$routes->get('/edit_siswa/(:num)', 'DaftarSiswaController::edit_siswa/$1', ['filter' => 'login']);
+
+$routes->put('/update_profilesekolah/(:num)', 'DaftarProfileSekolahController::update_profilesekolah/$1', ['filter' => 'login']);
+$routes->get('/update_pendik/(:num)', 'DaftarPendikController::update_pendik/$1', ['filter' => 'login']);
+$routes->get('/update_tendik/(:num)', 'DaftarTendikController::update_tendik/$1', ['filter' => 'login']);
+$routes->get('/update_siswa/(:num)', 'DaftarSiswaController::update_siswa/$1', ['filter' => 'login']);
+
+$routes->get('/delete_pendik/(:num)', 'DaftarPendikController::delete_pendik/$1', ['filter' => 'login']);
+$routes->get('/delete_tendik/(:num)', 'DaftarTendikController::delete_tendik/$1', ['filter' => 'login']);
+$routes->get('/delete_siswa/(:num)', 'DaftarSiswaController::delete_siswa/$1', ['filter' => 'login']);
 /*
 * --------------------------------------------------------------------
 * Additional Routing

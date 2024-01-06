@@ -11,10 +11,9 @@ class DaftarManagementModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = [
         'nik',
-        'nama_management',
+        'npsn',
+        'nama_sekolah',
         'alamat',
         'telp',
-        'foto',
-        'pesan'
     ];
 }

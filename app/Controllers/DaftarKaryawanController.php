@@ -37,13 +37,23 @@ class DaftarKaryawanController extends BaseController
         // validation input
         if (!$this->validate([
             'nik' => [
-                'rules' => 'required|is_unique[karyawan.nik]|numeric|max_length[16]|min_length[5]',
+                'rules' => 'required|is_unique[karyawan.nik]|numeric|max_length[16]|min_length[16]',
                 'errors' => [
                     'required' => 'NIK Tidak Boleh Kosong',
                     'is_unique' => 'NIK Sudah Ada Di Dalam Database',
                     'max_length' => 'Maximal NIK 16 Karakter',
                     'min_length' => 'Minimal NIK 16 Karakter',
                     'numeric' => 'NIK Hanya Bisa Diinputkan Dengan Angka',
+                ],
+            ],
+            'npsn' => [
+                'rules' => 'required|is_unique[karyawan.npsn]|numeric|max_length[8]|min_length[8]',
+                'errors' => [
+                    'required' => 'NPSN Tidak Boleh Kosong',
+                    'is_unique' => 'NPSN Sudah Ada Di Dalam Database',
+                    'max_length' => 'Maximal NPSN 8 Karakter',
+                    'min_length' => 'Minimal NPSN 8 Karakter',
+                    'numeric' => 'NPSN Hanya Bisa Diinputkan Dengan Angka',
                 ],
             ],
             'nama' => [
@@ -63,10 +73,11 @@ class DaftarKaryawanController extends BaseController
                 ],
             ],
         ])) {
-            return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
+            // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
         $nik        = $this->request->getVar('nik');
+        $npsn       = $this->request->getVar('npsn');
         $nama       = $this->request->getVar('nama');
 
         // ambil foto
@@ -78,6 +89,7 @@ class DaftarKaryawanController extends BaseController
 
         $data = [
             'nik' => $nik,
+            'npsn' => $npsn,
             'nama_karyawan' => $nama,
             'foto' => $namaFoto,
         ];
@@ -112,6 +124,15 @@ class DaftarKaryawanController extends BaseController
                     'numeric' => 'NIK Hanya Bisa Diinputkan Dengan Angka',
                 ],
             ],
+            'npsn' => [
+                'rules' => 'is_unique[karyawan.npsn]|numeric|max_length[8]|min_length[8]|permit_empty',
+                'errors' => [
+                    'is_unique' => 'NPSN Sudah Ada Di Dalam Database',
+                    'max_length' => 'Maximal NPSN 8 Karakter',
+                    'min_length' => 'Minimal NPSN 8 Karakter',
+                    'numeric' => 'NPSN Hanya Bisa Diinputkan Dengan Angka',
+                ],
+            ],
             'nama' => [
                 'rules' => 'alpha_numeric_space|max_length[100]|permit_empty',
                 'errors' => [
@@ -138,6 +159,13 @@ class DaftarKaryawanController extends BaseController
             $dataNik = $this->request->getVar('nik');
         }
 
+        $npsn    = $this->request->getVar('npsn');
+        if ($npsn == null) {
+            $dataNpsn = $this->request->getVar('npsnLama');
+        } else {
+            $dataNpsn = $this->request->getVar('npsn');
+        }
+
         $nama       = $this->request->getVar('nama');
         if ($nama == null) {
             $dataNama = $this->request->getVar('namaLama');
@@ -156,6 +184,7 @@ class DaftarKaryawanController extends BaseController
 
         $data = [
             'nik' => $dataNik,
+            'npsn' => $dataNpsn,
             'nama_karyawan' => $dataNama,
             'foto' => $namaFoto,
         ];
