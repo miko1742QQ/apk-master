@@ -36,7 +36,7 @@ li {
 }
 
 .number-show {
-    background-color: #f8f8f8;
+    background-color: #BCA37F;
     transform: scale(10.0);
     transition: background-color 1.5s ease, transform 1.5s ease;
     position: fixed;
@@ -79,11 +79,12 @@ li {
     border: 1px solid transparent;
     border-radius: 8px;
     display: inline-block;
-    background-color: #1F1717;
-    color: white;
+    background-color: #BCA37F;
+    color: black;
     font-weight: bold;
     padding-top: 12px;
     font-family: 'Arial Rounded MT';
+    font-size: 26px;
 }
 
 .resultColor {
@@ -105,7 +106,7 @@ li {
 }
 
 #result-border {
-    border: 5px solid #FFEBD8;
+    border: 5px solid #BCA37F;
     border-radius: 20px;
     height: 50%;
     justify-content: center;
@@ -127,7 +128,7 @@ marquee {
 }
 
 #bagianatas {
-    background-color: #1F1717;
+    background-color: #BCA37F;
     font-family: 'Arial Rounded MT';
 }
 
@@ -140,7 +141,7 @@ marquee {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #FFC5C5;
+    background-color: #DAC0A3;
     padding-bottom: 20px;
     font-family: 'Arial Rounded MT';
 }
@@ -148,7 +149,7 @@ marquee {
 #bagianbawahkanan {
     display: flex;
     flex-direction: column;
-    background-color: #1F1717;
+    background-color: #BCA37F;
     padding-bottom: 20px;
     font-family: 'Arial Rounded MT';
 }
@@ -157,7 +158,7 @@ marquee {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: #1F1717;
+    background-color: #BCA37F;
     padding-right: 20px;
     padding-top: 20px;
     font-family: 'Arial Rounded MT';
@@ -193,7 +194,7 @@ marquee {
         border: 1px solid gray;
         display: flex;
         color: black;
-        background-color: #FFC5C5;
+        background-color: #BCA37F;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
@@ -210,7 +211,7 @@ marquee {
     }
 
     .number-show {
-        background-color: #f8f8f8;
+        background-color: #BCA37F;
         transform: scale(5.0);
         transition: background-color 1.5s ease, transform 1.5s ease;
         position: fixed;
@@ -243,7 +244,7 @@ marquee {
     }
 
     #result-border {
-        border: 5px solid #FFEBD8;
+        border: 5px solid #BCA37F;
         border-radius: 20px;
         height: 150px;
         justify-content: center;

@@ -11,7 +11,7 @@
 
             <div class="col-lg-8 col-xl-8 col-md-8 col-xs-12 col-sm-12 col-12" align="center">
                 <div class="resultColor" id="resultColor"></div>
-                <div class="resultAturan" id="resultAturan" style="color: white; font-size: 26px; font-weight: bold;"></div>
+                <div class="resultAturan" id="resultAturan"></div>
             </div>
         </div>
 

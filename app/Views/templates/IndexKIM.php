@@ -193,6 +193,7 @@
             selectedColor = color;
             var colorDiv = document.getElementById('resultColor');
             var colorDiv1 = document.getElementById('resultColor1');
+            var colorDiv2 = document.getElementById('resultAturan');
             var resultDiv = document.getElementById('result');
             var numberDivs = document.querySelectorAll('.number');
 
@@ -203,6 +204,7 @@
                     colorDiv1.innerHTML = 'KUPON MERAH';
                     colorDiv1.style.color = '#FF6AC2';
                     resultDiv.style.color = '#FF6AC2';
+                    colorDiv2.style.color = 'black';
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = '#FF6AC2';
                         div.style.color = '';
@@ -216,6 +218,7 @@
                     colorDiv1.innerHTML = 'KUPON BIRU';
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
+                    colorDiv2.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = selectedColor;
                         div.style.color = 'white';
@@ -229,6 +232,7 @@
                     colorDiv1.innerHTML = 'KUPON HIJAU';
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
+                    colorDiv2.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = selectedColor;
                         div.style.color = 'white';
@@ -242,6 +246,7 @@
                     colorDiv1.innerHTML = 'KUPON KUNING';
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
+                    colorDiv2.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = selectedColor;
                         div.style.color = '';
@@ -255,6 +260,7 @@
                     colorDiv1.innerHTML = 'KUPON PUTIH';
                     colorDiv1.style.color = selectedColor;
                     resultDiv.style.color = selectedColor;
+                    colorDiv2.style.color = selectedColor;
                     numberDivs.forEach(function(div) {
                         div.style.backgroundColor = selectedColor;
                         div.style.color = '';
