@@ -16,6 +16,7 @@ class Home extends BaseController
     protected $penggunaModel;
     protected $penggunaEditModel;
     protected $managementModel;
+    protected $profilesekolahModel;
 
     public function __construct()
     {
@@ -24,6 +25,7 @@ class Home extends BaseController
         $this->penggunaModel = new DaftarPenggunaModel();
         $this->penggunaEditModel = new DaftarPenggunaEditModel();
         $this->managementModel = new DaftarManagementModel();
+        $this->profilesekolahModel = new DaftarManagementModel();
     }
     public function index(): string
     {
@@ -37,6 +39,7 @@ class Home extends BaseController
         $data['users'] = $this->penggunaModel->getPengguna();
         $data['management'] = $this->managementModel->where(['nik' => user()->nik])->first();
         $data['management1'] = $this->managementModel->findAll();
+        $data['profilesekolah'] = $this->profilesekolahModel->where(['nik' => user()->nik])->first();
         return view('dashboard', $data);
     }
 

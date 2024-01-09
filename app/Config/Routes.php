@@ -71,18 +71,18 @@ $routes->get('/create_pendik', 'DaftarPendikController::create_pendik', ['filter
 $routes->get('/create_tendik', 'DaftarTendikController::create_tendik', ['filter' => 'login']);
 $routes->get('/create_siswa', 'DaftarSiswaController::create_siswa', ['filter' => 'login']);
 
-$routes->get('/save_pendik', 'DaftarPendikController::save_pendik', ['filter' => 'login']);
-$routes->get('/save_tendik', 'DaftarTendikController::save_tendik', ['filter' => 'login']);
-$routes->get('/save_siswa', 'DaftarSiswaController::save_siswa', ['filter' => 'login']);
+$routes->post('/save_pendik', 'DaftarPendikController::save_pendik', ['filter' => 'login']);
+$routes->post('/save_tendik', 'DaftarTendikController::save_tendik', ['filter' => 'login']);
+$routes->post('/save_siswa', 'DaftarSiswaController::save_siswa', ['filter' => 'login']);
 
 $routes->get('/edit_pendik/(:num)', 'DaftarPendikController::edit_pendik/$1', ['filter' => 'login']);
 $routes->get('/edit_tendik/(:num)', 'DaftarTendikController::edit_tendik/$1', ['filter' => 'login']);
 $routes->get('/edit_siswa/(:num)', 'DaftarSiswaController::edit_siswa/$1', ['filter' => 'login']);
 
 $routes->put('/update_profilesekolah/(:num)', 'DaftarProfileSekolahController::update_profilesekolah/$1', ['filter' => 'login']);
-$routes->get('/update_pendik/(:num)', 'DaftarPendikController::update_pendik/$1', ['filter' => 'login']);
-$routes->get('/update_tendik/(:num)', 'DaftarTendikController::update_tendik/$1', ['filter' => 'login']);
-$routes->get('/update_siswa/(:num)', 'DaftarSiswaController::update_siswa/$1', ['filter' => 'login']);
+$routes->put('/update_pendik/(:num)', 'DaftarPendikController::update_pendik/$1', ['filter' => 'login']);
+$routes->put('/update_tendik/(:num)', 'DaftarTendikController::update_tendik/$1', ['filter' => 'login']);
+$routes->put('/update_siswa/(:num)', 'DaftarSiswaController::update_siswa/$1', ['filter' => 'login']);
 
 $routes->get('/delete_pendik/(:num)', 'DaftarPendikController::delete_pendik/$1', ['filter' => 'login']);
 $routes->get('/delete_tendik/(:num)', 'DaftarTendikController::delete_tendik/$1', ['filter' => 'login']);

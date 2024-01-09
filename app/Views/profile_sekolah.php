@@ -77,7 +77,7 @@
                                 <div class="row pb-4">
                                     <div class="mb-2">
                                         <label class="form-label" for="nama_sekolah"><b>Nama Sekolah</b></label>
-                                        <input type="text" id="nama_sekolah" name="nama_sekolah" maxlength="100" class="form-control <?php if (session('validation.nama_sekolah')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan Nama Management Anda" value="<?= old('nama_sekolah'); ?>">
+                                        <input type="text" id="nama_sekolah" name="nama_sekolah" maxlength="100" class="form-control <?php if (session('validation.nama_sekolah')) : ?> is-invalid <?php endif ?>" autofocus placeholder="Masukan Nama Sekolah Anda" value="<?= old('nama_sekolah'); ?>">
                                         <div class="invalid-feedback">
                                             <?= session('validation.nama_sekolah'); ?>
                                         </div>
@@ -93,7 +93,7 @@
 
                                     <div class="mb-2">
                                         <label class="form-label" for="alamat"><b>Alamat Sekolah</b></label>
-                                        <textarea type="text" id="alamat" name="alamat" rows="3" maxlength="100" class="form-control <?php if (session('validation.alamat')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Alamat Management Anda" value="<?= old('alamat'); ?>"><?= old('alamat'); ?></textarea>
+                                        <textarea type="text" id="alamat" name="alamat" rows="3" maxlength="100" class="form-control <?php if (session('validation.alamat')) : ?> is-invalid <?php endif ?>" placeholder="Masukan Alamat Sekolah Anda" value="<?= old('alamat'); ?>"><?= old('alamat'); ?></textarea>
                                         <div class="invalid-feedback">
                                             <?= session('validation.alamat'); ?>
                                         </div>

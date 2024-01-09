@@ -68,33 +68,44 @@
                     <?php $nomor = 1; ?>
                     <?php foreach ($tendik as $value) : ?>
                         <?php
-                        $awal = new DateTime($value['tmt_pns']);
-                        $akhir = new DateTime();
-                        $abdi_pns = $awal->diff($akhir);
-
-                        $awal1 = new DateTime($value['tmt_tugas']);
-                        $akhir1 = new DateTime();
-                        $abdi_sekolah = $awal1->diff($akhir1);
-
+                        // Menghitung tahun pensiun
                         $tanggal_lahir = $value['tanggal_lahir'];
-                        $batasusia = "+ 60 years";
-                        $tahun_pensiun = DateTime::createFromFormat("Y-m-d", $tanggal_lahir);
-                        $tahun_pensiun->modify($batasusia); ?>
+                        $tahun_pensiun = new DateTime($tanggal_lahir);
+                        $res = $tahun_pensiun->format('Y') + 60;
+
+                        // Menghitung masa abdi PNS
+                        $tmt_pns = $value['tmt_pns'];
+                        $masa_abdi_pns = '';
+                        if ($tmt_pns !== null && $tmt_pns !== '0000-00-00') {
+                            $awal_pns = new DateTime($tmt_pns);
+                            $akhir_pns = new DateTime();
+                            $masa_abdi_pns = $awal_pns->diff($akhir_pns)->format('%y tahun %m bulan %d hari');
+                        }
+
+                        // Menghitung masa abdi sekolah
+                        $tmt_tugas = $value['tmt_tugas'];
+                        $masa_abdi_sekolah = '';
+                        if ($tmt_tugas !== null && $tmt_tugas !== '0000-00-00') {
+                            $awal_sekolah = new DateTime($tmt_tugas);
+                            $akhir_sekolah = new DateTime();
+                            $masa_abdi_sekolah = $awal_sekolah->diff($akhir_sekolah)->format('%y tahun %m bulan %d hari');
+                        }
+                        ?>
 
                         <tr style="vertical-align: middle; text-align: center; text-shadow: none;">
                             <td style="margin: 5px; padding: 3px; text-align: center;"><?= $nomor++; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["nik"]; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["nama_tendik"]; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["tempat_lahir"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= date('d M Y', strtotime($value['tanggal_lahir'])); ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["jekel"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["status_gtk"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["nip"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= date('d M Y', strtotime($value['tmt_tugas'])); ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= date('d M Y', strtotime($value['tmt_pns'])); ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["tmt_pns"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["tmt_pns"]; ?></td>
-                            <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["tmt_pns"]; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= date('d M Y', strtotime($value['tanggal_lahir'])); ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["jekel"]; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["status_gtk"]; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $value["nip"] != null ? $value["nip"] : '-'; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= date('d M Y', strtotime($value['tmt_tugas'])); ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $tmt_pns != null ? date('d M Y', strtotime($value['tmt_pns'])) : '-'; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $masa_abdi_sekolah; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $tmt_pns != null ? $masa_abdi_pns : '-'; ?></td>
+                            <td style="margin: 5px; padding: 3px; text-align: center;"><?= $tahun_pensiun !== false ? $res : ''; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: justify;"><?= $value["telp"]; ?></td>
                             <td style="margin: 5px; padding: 3px; text-align: center;">
                                 <a href="<?= base_url('edit_tendik/' . $value['id']) ?>" class="btn btn-outline-warning btn-sm btn-icon-split" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">

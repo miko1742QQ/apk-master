@@ -5,29 +5,29 @@
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
-            <h4 class="mt-2">Tambah Data Pendik</h4>
+            <h4 class="mt-2">Tambah Data Tendik</h4>
         </div>
     </div>
 
     <div class="card-body">
-        <form method="POST" action="<?= base_url('save_pendik') ?>">
+        <form method="POST" action="<?= base_url('save_tendik') ?>">
             <?= csrf_field(); ?>
 
             <input type="hidden" name="npsnSekolah" value="<?= $datauser['npsn']; ?>">
 
             <div class="mb-3">
                 <label for="nik" class="form-label"><b>NIK</b></label>
-                <input type="text" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" id="nik" name="nik" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NIK pendik" maxlength="16" minlength="16" value="<?= old('nik'); ?>">
+                <input type="text" class="form-control <?php if (session('validation.nik')) : ?> is-invalid <?php endif ?>" id="nik" name="nik" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NIK tendik" maxlength="16" minlength="16" value="<?= old('nik'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.nik'); ?>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="nama_pendik" class="form-label"><b>Nama Pendik</b></label>
-                <input type="text" class="form-control <?php if (session('validation.nama_pendik')) : ?> is-invalid <?php endif ?>" id="nama_pendik" name="nama_pendik" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nama pendik" maxlength="100" value="<?= old('nama_pendik'); ?>">
+                <label for="nama_tendik" class="form-label"><b>Nama Tendik</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nama_tendik')) : ?> is-invalid <?php endif ?>" id="nama_tendik" name="nama_tendik" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nama tendik" maxlength="100" value="<?= old('nama_tendik'); ?>">
                 <div class="invalid-feedback">
-                    <?= session('validation.nama_pendik'); ?>
+                    <?= session('validation.nama_tendik'); ?>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="tempat_lahir" class="form-label"><b>Tempat Lahir</b></label>
-                        <input type="text" class="form-control <?php if (session('validation.tempat_lahir')) : ?> is-invalid <?php endif ?>" id="tempat_lahir" name="tempat_lahir" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 50)" placeholder="Silakan masukkan tempat lahir pendik" maxlength="50" value="<?= old('tempat_lahir'); ?>">
+                        <input type="text" class="form-control <?php if (session('validation.tempat_lahir')) : ?> is-invalid <?php endif ?>" id="tempat_lahir" name="tempat_lahir" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 50)" placeholder="Silakan masukkan tempat lahir tendik" maxlength="50" value="<?= old('tempat_lahir'); ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.tempat_lahir'); ?>
                         </div>
@@ -43,7 +43,7 @@
 
                     <div class="col-6">
                         <label for="tanggal_lahir" class="form-label"><b>Tanggal Lahir</b></label>
-                        <input type="date" class="form-control <?php if (session('validation.tanggal_lahir')) : ?> is-invalid <?php endif ?>" id="tanggal_lahir" name="tanggal_lahir" placeholder="Silakan masukkan tanggal lahir pendik" value="<?= old('tanggal_lahir'); ?>" max="<?= date('Y-m-d'); ?>" onfocus="this.blur()" onkeydown="return false">
+                        <input type="date" class="form-control <?php if (session('validation.tanggal_lahir')) : ?> is-invalid <?php endif ?>" id="tanggal_lahir" name="tanggal_lahir" placeholder="Silakan masukkan tanggal lahir tendik" value="<?= old('tanggal_lahir'); ?>" max="<?= date('Y-m-d'); ?>" onfocus="this.blur()" onkeydown="return false">
                         <div class="invalid-feedback">
                             <?= session('validation.tanggal_lahir'); ?>
                         </div>
@@ -81,7 +81,7 @@
 
             <div class="mb-3">
                 <label for="alamat" class="form-label"><b>Alamat</b></label>
-                <textarea class="form-control <?php if (session('validation.alamat')) : ?> is-invalid <?php endif ?>" id="alamat" name="alamat" rows="3" placeholder="Silakan masukkan alamat pendik" maxlength="100"><?= old('alamat'); ?></textarea>
+                <textarea class="form-control <?php if (session('validation.alamat')) : ?> is-invalid <?php endif ?>" id="alamat" name="alamat" rows="3" placeholder="Silakan masukkan alamat tendik" maxlength="100"><?= old('alamat'); ?></textarea>
                 <div class="invalid-feedback">
                     <?= session('validation.alamat'); ?>
                 </div>
@@ -89,7 +89,7 @@
 
             <div class="mb-3">
                 <label for="telp" class="form-label"><b>Nomor Telepon</b></label>
-                <input type="text" class="form-control <?php if (session('validation.telp')) : ?> is-invalid <?php endif ?>" id="telp" name="telp" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 15)" placeholder="Silakan masukkan nomor telepon pendik" maxlength="15" minlength="8" value="<?= old('telp'); ?>">
+                <input type="text" class="form-control <?php if (session('validation.telp')) : ?> is-invalid <?php endif ?>" id="telp" name="telp" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 15)" placeholder="Silakan masukkan nomor telepon tendik" maxlength="15" minlength="8" value="<?= old('telp'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.telp'); ?>
                 </div>
@@ -111,7 +111,7 @@
 
             <div class="mb-3" id="nipDiv">
                 <label for="nip" class="form-label"><b>NIP</b></label>
-                <input type="text" class="form-control <?php if (session('validation.nip')) : ?> is-invalid <?php endif ?>" id="nip" name="nip" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NIP pendik" maxlength="16" minlength="16" value="<?= old('nip'); ?>">
+                <input type="text" class="form-control <?php if (session('validation.nip')) : ?> is-invalid <?php endif ?>" id="nip" name="nip" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NIP tendik" maxlength="16" minlength="16" value="<?= old('nip'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.nip'); ?>
                 </div>
@@ -119,7 +119,7 @@
 
             <div class="mb-3">
                 <label for="nuptk" class="form-label"><b>NUPTK</b></label>
-                <input type="text" class="form-control <?php if (session('validation.nuptk')) : ?> is-invalid <?php endif ?>" id="nuptk" name="nuptk" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NUPTK pendik" maxlength="16" minlength="16" value="<?= old('nuptk'); ?>">
+                <input type="text" class="form-control <?php if (session('validation.nuptk')) : ?> is-invalid <?php endif ?>" id="nuptk" name="nuptk" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan NUPTK tendik" maxlength="16" minlength="16" value="<?= old('nuptk'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.nuptk'); ?>
                 </div>
@@ -146,7 +146,7 @@
                 <span class="text p-1">Save</span>
             </button>
 
-            <a href="../daftar_pendik" class="btn btn-outline-secondary btn-sm btn-icon-split">
+            <a href="../daftar_tendik" class="btn btn-outline-secondary btn-sm btn-icon-split">
                 <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                 <span class="text p-1">Kembali</span>
             </a>
