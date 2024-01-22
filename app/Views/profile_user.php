@@ -34,15 +34,15 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="nama_karyawan" class="form-label"><b>Nama Konsumen</b></label>
-                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>">
+                            <label for="nama_karyawan" class="form-label"><b>Nama User</b></label>
+                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" placeholder="Masukkan nama lengkap user">
                             <div class="invalid-feedback">
                                 <?= session('validation.nama_karyawan'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label"><b>Email</b></label>
-                            <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>">
+                            <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>" placeholder="Masukkan email user">
                             <div class="invalid-feedback">
                                 <?= session('validation.email'); ?>
                             </div>
