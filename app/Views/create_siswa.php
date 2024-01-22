@@ -7,7 +7,7 @@
 
     <input type="hidden" name="npsnSekolah" value="<?= $datauser['npsn']; ?>">
 
-    <div class="card mb-3">
+    <div class="card shadow mb-3">
         <div class="row card-header p-2 m-0">
             <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
                 <h5 class="mt-2">Data Siswa</h5>
@@ -48,22 +48,18 @@
             </div>
 
             <div class="mb-3">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="tempat_lahir" class="form-label"><b>Tempat Lahir</b></label>
-                        <input type="text" class="form-control <?php if (session('validation.tempat_lahir')) : ?> is-invalid <?php endif ?>" id="tempat_lahir" name="tempat_lahir" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 50)" placeholder="Silakan masukkan tempat lahir siswa" maxlength="50" value="<?= old('tempat_lahir'); ?>">
-                        <div class="invalid-feedback">
-                            <?= session('validation.tempat_lahir'); ?>
-                        </div>
-                    </div>
+                <label for="tempat_lahir" class="form-label"><b>Tempat Lahir</b></label>
+                <input type="text" class="form-control <?php if (session('validation.tempat_lahir')) : ?> is-invalid <?php endif ?>" id="tempat_lahir" name="tempat_lahir" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 50)" placeholder="Silakan masukkan tempat lahir siswa" maxlength="50" value="<?= old('tempat_lahir'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.tempat_lahir'); ?>
+                </div>
+            </div>
 
-                    <div class="col-6">
-                        <label for="tanggal_lahir" class="form-label"><b>Tanggal Lahir</b></label>
-                        <input type="date" class="form-control <?php if (session('validation.tanggal_lahir')) : ?> is-invalid <?php endif ?>" id="tanggal_lahir" name="tanggal_lahir" placeholder="Silakan masukkan tanggal lahir siswa" value="<?= old('tanggal_lahir'); ?>" max="<?= date('Y-m-d'); ?>" onfocus="this.blur()" onkeydown="return false">
-                        <div class="invalid-feedback">
-                            <?= session('validation.tanggal_lahir'); ?>
-                        </div>
-                    </div>
+            <div class="mb-3">
+                <label for="tanggal_lahir" class="form-label"><b>Tanggal Lahir</b></label>
+                <input type="date" class="form-control <?php if (session('validation.tanggal_lahir')) : ?> is-invalid <?php endif ?>" id="tanggal_lahir" name="tanggal_lahir" placeholder="Silakan masukkan tanggal lahir siswa" value="<?= old('tanggal_lahir'); ?>" max="<?= date('Y-m-d'); ?>" onfocus="this.blur()" onkeydown="return false">
+                <div class="invalid-feedback">
+                    <?= session('validation.tanggal_lahir'); ?>
                 </div>
             </div>
 
@@ -85,11 +81,20 @@
 
             <div class="mb-3">
                 <label for="jekel" class="form-label"><b>Jenis Kelamin</b></label>
-                <select class="form-control <?php if (session('validation.jekel')) : ?> is-invalid <?php endif ?>" id="jekel" name="jekel">
-                    <option value="" selected disabled></option>
-                    <option value="Laki-laki" <?= (old('jekel') == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
-                    <option value="Perempuan" <?= (old('jekel') == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
-                </select>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input <?php if (session('validation.jekel')) : ?> is-invalid <?php endif ?>" type="radio" name="jekel" id="jekel_laki" value="Laki-laki" <?= (old('jekel') == 'Laki-laki') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="jekel_laki">L</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input <?php if (session('validation.jekel')) : ?> is-invalid <?php endif ?>" type="radio" name="jekel" id="jekel_perempuan" value="Perempuan" <?= (old('jekel') == 'Perempuan') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="jekel_perempuan">P</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="invalid-feedback">
                     <?= session('validation.jekel'); ?>
                 </div>
@@ -110,7 +115,6 @@
                     <?php foreach ($tempattinggal as $value) { ?>
                         <option value="<?= $value['nama_tempat_tinggal']; ?>" <?= old('tempat_tinggal') == $value['nama_tempat_tinggal'] ? 'selected' : null ?>><?= $value['nama_tempat_tinggal']; ?></option>"
                     <?php } ?>
-
                 </select>
                 <div class="invalid-feedback">
                     <?= session('validation.tempat_tinggal'); ?>
@@ -139,10 +143,50 @@
             </div>
 
             <div class="mb-3">
+                <label for="rombel" class="form-label"><b>Rombel</b></label>
+                <input type="text" class="form-control <?php if (session('validation.rombel')) : ?> is-invalid <?php endif ?>" id="rombel" name="rombel" placeholder="Silakan masukkan rombel siswa" maxlength="100" value="<?= old('rombel'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.rombel'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_peserta_un" class="form-label"><b>Nomor Peserta UN</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_peserta_un')) : ?> is-invalid <?php endif ?>" id="nomor_peserta_un" name="nomor_peserta_un" placeholder="Silakan masukkan nomor peserta UN siswa" maxlength="100" value="<?= old('nomor_peserta_un'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_peserta_un'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_seri_ijazah" class="form-label"><b>Nomor Seri Ijazah</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_seri_ijazah')) : ?> is-invalid <?php endif ?>" id="nomor_seri_ijazah" name="nomor_seri_ijazah" placeholder="Silakan masukkan nomor seri ijazah siswa" maxlength="100" value="<?= old('nomor_seri_ijazah'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_seri_ijazah'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label for="skhun" class="form-label"><b>SKHUN</b></label>
                 <input type="text" class="form-control <?php if (session('validation.skhun')) : ?> is-invalid <?php endif ?>" id="skhun" name="skhun" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nomor SKHU siswa" maxlength="100" value="<?= old('skhun'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.skhun'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_regis_akte" class="form-label"><b>Nomor Regis Akte</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_regis_akte')) : ?> is-invalid <?php endif ?>" id="nomor_regis_akte" name="nomor_regis_akte" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor regis akte siswa" maxlength="16" minlength="16" value="<?= old('nomor_regis_akte'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_regis_akte'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_kk" class="form-label"><b>Nomor KK</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_kk')) : ?> is-invalid <?php endif ?>" id="nomor_kk" name="nomor_kk" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor KK siswa" maxlength="16" minlength="16" value="<?= old('nomor_kk'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_kk'); ?>
                 </div>
             </div>
 
@@ -167,6 +211,48 @@
                 </div>
             </div>
 
+            <div class="mb-3">
+                <label for="layak_pip" class="form-label"><b>Layak PIP</b></label>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input layak-pip <?php if (session('validation.layak_pip')) : ?> is-invalid <?php endif ?>" type="radio" name="layak_pip" id="layak_pip_ya" value="Ya" <?= (old('layak_pip') == 'Ya') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="layak_pip_ya">Ya</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input layak-pip <?php if (session('validation.layak_pip')) : ?> is-invalid <?php endif ?>" type="radio" name="layak_pip" id="layak_pip_tidak" value="Tidak" <?= (old('layak_pip') == 'Tidak') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="layak_pip_tidak">Tidak</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <?= session('validation.layak_pip'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="penerima_kip" class="form-label"><b>Penerima KIP</b></label>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input penerima-kip <?php if (session('validation.penerima_kip')) : ?> is-invalid <?php endif ?>" type="radio" name="penerima_kip" id="penerima_kip_ya" value="Ya" <?= (old('layak_pip') == 'Ya') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="layak_pip_ya">Ya</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input penerima-kip <?php if (session('validation.penerima_kip')) : ?> is-invalid <?php endif ?>" type="radio" name="penerima_kip" id="penerima_kip_tidak" value="Tidak" <?= (old('penerima_kip') == 'Tidak') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="penerima_kip_tidak">Tidak</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <?= session('validation.penerima_kip'); ?>
+                </div>
+            </div>
+
             <div class="mb-3" id="nomorKPSDiv" style="display: none;">
                 <label for="nomor_kps" class="form-label"><b>Nomor KPS</b></label>
                 <input type="text" class="form-control <?php if (session('validation.nomor_kps')) : ?> is-invalid <?php endif ?>" id="nomor_kps" name="nomor_kps" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor KPS siswa" maxlength="16" minlength="16" value="<?= old('nomor_kps'); ?>">
@@ -174,10 +260,42 @@
                     <?= session('validation.nomor_kps'); ?>
                 </div>
             </div>
+
+            <div class="mb-3" id="alasanPIPDiv" style="display: none;">
+                <label for="alasan_pip" class="form-label"><b>Alasan Layak PIP</b></label>
+                <input type="text" class="form-control <?php if (session('validation.alasan_pip')) : ?> is-invalid <?php endif ?>" id="alasan_pip" name="alasan_pip" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan alasan layak PIP" maxlength="100" value="<?= old('alasan_pip'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.alasan_pip'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3" id="nomorKIPDiv" style="display: none;">
+                <label for="nomor_kip" class="form-label"><b>Nomor KIP</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_kip')) : ?> is-invalid <?php endif ?>" id="nomor_kip" name="nomor_kip" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor KIP siswa" maxlength="16" minlength="16" value="<?= old('nomor_kip'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_kip'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3" id="namaKIPDiv" style="display: none;">
+                <label for="nama_kip" class="form-label"><b>Nama KIP</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nama_kip')) : ?> is-invalid <?php endif ?>" id="nama_kip" name="nama_kip" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nama KIP" maxlength="100" value="<?= old('nama_kip'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nama_kip'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_kks" class="form-label"><b>Nomor KKS</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_kks')) : ?> is-invalid <?php endif ?>" id="nomor_kks" name="nomor_kks" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor KKS siswa" maxlength="16" minlength="16" value="<?= old('nomor_kks'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_kks'); ?>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="card mb-3">
+    <div class="card shadow mb-3">
         <div class="row card-header p-2 m-0">
             <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
                 <h5 class="mt-2">Data Ayah Kandung</h5>
@@ -253,7 +371,7 @@
         </div>
     </div>
 
-    <div class="card mb-3">
+    <div class="card shadow mb-3">
         <div class="row card-header p-2 m-0">
             <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
                 <h5 class="mt-2">Data Ibu Kandung</h5>
@@ -330,7 +448,7 @@
     </div>
 
 
-    <div class="card mb-3">
+    <div class="card shadow mb-3">
         <div class="row card-header p-2 m-0">
             <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
                 <h5 class="mt-2">Data Wali</h5>
@@ -406,7 +524,155 @@
         </div>
     </div>
 
-    <div class="card mb-3">
+    <div class="card shadow mb-3">
+        <div class="row card-header p-2 m-0">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
+                <h5 class="mt-2">Data Bank</h5>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="jenis_bank" class="form-label"><b>Bank</b></label>
+                <select class="form-control <?php if (session('validation.jenis_bank')) : ?> is-invalid <?php endif ?>" id="jenis_bank" name="jenis_bank">
+                    <option value="" selected disabled></option>
+                    <?php foreach ($bank as $value) { ?>
+                        <option value="<?= $value['nama_bank']; ?>" <?= old('jenis_bank') == $value['nama_bank'] ? 'selected' : null ?>><?= $value['nama_bank']; ?></option>"
+                    <?php } ?>
+                </select>
+                <div class="invalid-feedback">
+                    <?= session('validation.jenis_bank'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomor_rekening" class="form-label"><b>Nomor Rekening</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nomor_rekening')) : ?> is-invalid <?php endif ?>" id="nomor_rekening" name="nomor_rekening" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan nomor rekening siswa" maxlength="16" minlength="16" value="<?= old('nomor_rekening'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nomor_rekening'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nama_rekening" class="form-label"><b>Nama Rekening</b></label>
+                <input type="text" class="form-control <?php if (session('validation.nama_rekening')) : ?> is-invalid <?php endif ?>" id="nama_rekening" name="nama_rekening" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nama rekening" maxlength="100" value="<?= old('nama_rekening'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.nama_rekening'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-3">
+        <div class="row card-header p-2 m-0">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
+                <h5 class="mt-2">Data Rinci</h5>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="jenis_kebutuhankhusus" class="form-label"><b>Kebutuhan Khusus</b></label>
+                <select class="form-control <?php if (session('validation.jenis_kebutuhankhusus')) : ?> is-invalid <?php endif ?>" id="jenis_kebutuhankhusus" name="jenis_kebutuhankhusus">
+                    <option value="" selected disabled></option>
+                    <?php foreach ($kebutuhankhusus as $value) { ?>
+                        <option value="<?= $value['nama_kebutuhankhusus']; ?>" <?= old('jenis_kebutuhankhusus') == $value['nama_kebutuhankhusus'] ? 'selected' : null ?>><?= $value['nama_kebutuhankhusus']; ?></option>"
+                    <?php } ?>
+                </select>
+                <div class="invalid-feedback">
+                    <?= session('validation.jenis_kebutuhankhusus'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="sekolah_asal" class="form-label"><b>Sekolah Asal</b></label>
+                <input type="text" class="form-control <?php if (session('validation.sekolah_asal')) : ?> is-invalid <?php endif ?>" id="sekolah_asal" name="sekolah_asal" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" placeholder="Silakan masukkan nama sekolah asal" maxlength="100" value="<?= old('sekolah_asal'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.sekolah_asal'); ?>
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="anak_ke" class="form-label"><b>Anak Ke (berdasarkan KK)</b></label>
+                <input type="text" class="form-control <?php if (session('validation.anak_ke')) : ?> is-invalid <?php endif ?>" id="anak_ke" name="anak_ke" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan anak ke berapa dalam KK" maxlength="16" value="<?= old('anak_ke'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.anak_ke'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="jumlah_saudara_kandung" class="form-label"><b>Jumlah Saudara Kandung</b></label>
+                <input type="text" class="form-control <?php if (session('validation.jumlah_saudara_kandung')) : ?> is-invalid <?php endif ?>" id="jumlah_saudara_kandung" name="jumlah_saudara_kandung" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan jumlah saudara kandung" maxlength="16" value="<?= old('jumlah_saudara_kandung'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.jumlah_saudara_kandung'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="berat_badan" class="form-label"><b>Berat Badan (kg)</b></label>
+                <input type="text" class="form-control <?php if (session('validation.berat_badan')) : ?> is-invalid <?php endif ?>" id="berat_badan" name="berat_badan" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan berat badan siswa" maxlength="16" value="<?= old('berat_badan'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.berat_badan'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="tinggi_badan" class="form-label"><b>Tinggi Badan (cm)</b></label>
+                <input type="text" class="form-control <?php if (session('validation.tinggi_badan')) : ?> is-invalid <?php endif ?>" id="tinggi_badan" name="tinggi_badan" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan tinggi badan siswa" maxlength="16" value="<?= old('tinggi_badan'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.tinggi_badan'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="lingkar_kepala" class="form-label"><b>Lingkar Kepala</b></label>
+                <input type="text" class="form-control <?php if (session('validation.lingkar_kepala')) : ?> is-invalid <?php endif ?>" id="lingkar_kepala" name="lingkar_kepala" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan tinggi badan siswa" maxlength="16" value="<?= old('lingkar_kepala'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.lingkar_kepala'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="lintang" class="form-label"><b>Lintang</b></label>
+                <input type="text" class="form-control <?php if (session('validation.lintang')) : ?> is-invalid <?php endif ?>" id="lintang" name="lintang" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan lintang" maxlength="16" minlength="16" value="<?= old('lintang'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.lintang'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="bujur" class="form-label"><b>Bujur</b></label>
+                <input type="text" class="form-control <?php if (session('validation.bujur')) : ?> is-invalid <?php endif ?>" id="bujur" name="bujur" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16)" placeholder="Silakan masukkan bujur" maxlength="16" minlength="16" value="<?= old('bujur'); ?>">
+                <div class="invalid-feedback">
+                    <?= session('validation.bujur'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="jarak_sekolah" class="form-label"><b>Jarak Rumah Ke Sekolah</b></label>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input <?php if (session('validation.jarak_sekolah')) : ?> is-invalid <?php endif ?>" type="radio" name="jarak_sekolah" id="jarak_sekolah_kurang" value="0" <?= (old('jarak_sekolah') == '0') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="jarak_sekolah_kurang">Kurang dari 1 km</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
+                        <div class="form-check">
+                            <input class="form-check-input <?php if (session('validation.jarak_sekolah')) : ?> is-invalid <?php endif ?>" type="radio" name="jarak_sekolah" id="jarak_sekolah_lebih" value="1" <?= (old('jarak_sekolah') == '1') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="jarak_sekolah_lebih">Lebih dari 1 km</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    <?= session('validation.jarak_sekolah'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow">
         <div class="card-body">
             <button type="submit" class="btn btn-outline-primary btn-sm btn-icon-split">
                 <span class="icon"><i class="fas fa-save"></i></span>
@@ -424,12 +690,11 @@
 <script>
     $(document).ready(function() {
         $(document).ready(function() {
-            $('#agama, #jekel, #model_transportasi, #tempat_tinggal, #pendidikan_ayah, #pekerjaan_ayah, #penghasilan_ayah, #pendidikan_ibu, #pekerjaan_ibu, #penghasilan_ibu, #pendidikan_wali, #pekerjaan_wali, #penghasilan_wali').select2({
+            $('#agama, #jekel, #model_transportasi, #tempat_tinggal, #pendidikan_ayah, #pekerjaan_ayah, #penghasilan_ayah, #pendidikan_ibu, #pekerjaan_ibu, #penghasilan_ibu, #pendidikan_wali, #pekerjaan_wali, #penghasilan_wali, #jenis_bank, #jenis_kebutuhankhusus').select2({
                 placeholder: "Pilih Opsi",
                 allowClear: true
             });
 
-            // Fungsi untuk menangani perubahan pada elemen radio button penerima_kps
             $('.penerima-kps').change(function() {
                 if ($(this).val() == 'Tidak') {
                     $('#nomorKPSDiv').hide();
@@ -438,10 +703,45 @@
                 }
             });
 
-            // Inisialisasi tampilan berdasarkan nilai awal penerima_kps
+            $('.layak-pip').change(function() {
+                if ($(this).val() == 'Tidak') {
+                    $('#alasanPIPDiv').hide();
+                } else {
+                    $('#alasanPIPDiv').show();
+                }
+            });
+
+            $('.penerima-kip').change(function() {
+                if ($(this).val() == 'Tidak') {
+                    $('#nomorKIPDiv').hide();
+                    $('#namaKIPDiv').hide();
+                } else {
+                    $('#nomorKIPDiv').show();
+                    $('#namaKIPDiv').show();
+                }
+            });
+
             if ($('.penerima-kps:checked').val() == 'Tidak') {
                 $('#nomorKPSDiv').hide();
             }
+
+            if ($('.alasan-pip:checked').val() == 'Tidak') {
+                $('#alasanPIPDiv').hide();
+            }
+
+            if ($('.penerima-kip:checked').val() == 'Tidak') {
+                $('#nomorKIPDiv').hide();
+                $('#namaKIPDiv').hide();
+            }
+        });
+
+        $('#nama_siswa, #tempat_lahir, #alamat, #rombel, #alasan_pip, #nama_kip, #nama_ayah, #nama_ibu, #nama_wali, #nama_rekening, #sekolah_asal').on('input', function() {
+            var inputValue = $(this).val();
+            var capitalizedValue = inputValue.replace(/(?:^|\s)\S/g, function(a) {
+                return a.toUpperCase();
+            });
+
+            $(this).val(capitalizedValue).addClass('capitalize-first');
         });
     });
 </script>

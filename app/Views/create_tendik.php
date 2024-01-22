@@ -2,17 +2,17 @@
 
 <?= $this->section('page-content'); ?>
 
-<div class="card shadow">
-    <div class="row card-header p-2 m-0">
-        <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
-            <h4 class="mt-2">Tambah Data Tendik</h4>
+<form method="POST" action="<?= base_url('save_tendik') ?>">
+    <?= csrf_field(); ?>
+
+    <div class="card shadow mb-3">
+        <div class="row card-header p-2 m-0">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
+                <h4 class="mt-2">Data Tendik</h4>
+            </div>
         </div>
-    </div>
 
-    <div class="card-body">
-        <form method="POST" action="<?= base_url('save_tendik') ?>">
-            <?= csrf_field(); ?>
-
+        <div class="card-body">
             <input type="hidden" name="npsnSekolah" value="<?= $datauser['npsn']; ?>">
 
             <div class="mb-3">
@@ -96,6 +96,14 @@
             </div>
 
             <div class="mb-3">
+                <label for="email" class="form-label"><b>Email</b></label>
+                <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" placeholder="Silakan masukkan email pendik" maxlength="100" value="<?= old('email'); ?>">
+                <div class="invalid-feedback" id="emailError">
+                    <?= session('validation.email'); ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label for="status_gtk" class="form-label"><b>Status GTK</b></label>
                 <select class="form-control <?php if (session('validation.status_gtk')) : ?> is-invalid <?php endif ?>" id="status_gtk" name="status_gtk">
                     <option value="" selected disabled>Pilih Status GTK</option>
@@ -141,6 +149,23 @@
                 </div>
             </div>
 
+            <div class="mb-3">
+                <label for="jenis_ptk" class="form-label"><b>Jenis PTK</b></label>
+                <select class="form-control <?php if (session('validation.jenis_ptk')) : ?> is-invalid <?php endif ?>" id="jenis_ptk" name="jenis_ptk">
+                    <option value="" selected disabled>Pilih Jenis PTK</option>
+                    <?php foreach ($jenisptk as $value) { ?>
+                        <option value="<?= $value['nama_jenisptk']; ?>" <?= old('tempat_tinggal') == $value['nama_jenisptk'] ? 'selected' : null ?>><?= $value['nama_jenisptk']; ?></option>"
+                    <?php } ?>
+                </select>
+                <div class="invalid-feedback">
+                    <?= session('validation.jenis_ptk'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-body">
             <button type="submit" class="btn btn-outline-primary btn-sm btn-icon-split">
                 <span class="icon"><i class="fas fa-save"></i></span>
                 <span class="text p-1">Save</span>
@@ -150,22 +175,14 @@
                 <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                 <span class="text p-1">Kembali</span>
             </a>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 
 <script>
     $(document).ready(function() {
-        $('#agama').select2({
-            placeholder: "Pilih Agama",
-            allowClear: true
-        });
-        $('#jekel').select2({
-            placeholder: "Pilih Jenis Kelamin",
-            allowClear: true
-        });
-        $('#status_gtk').select2({
-            placeholder: "Pilih Status GTK",
+        $('#agama, #jekel, #status_gtk, #jenis_ptk').select2({
+            placeholder: "Pilih Opsi",
             allowClear: true
         });
 
@@ -182,6 +199,28 @@
                 $('#nipDiv').show();
                 $('#tmt_pnsDiv').show();
             }
+        });
+
+        $('#email').on('input', function() {
+            let email = $(this).val();
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                $(this).addClass('is-invalid');
+                $('#emailError').text('Masukkan alamat email yang valid.').show();
+            } else {
+                $(this).removeClass('is-invalid');
+                $('#emailError').hide();
+            }
+        });
+
+        $('#nama_pendik,#tempat_lahir, #alamat').on('input', function() {
+            var inputValue = $(this).val();
+            var capitalizedValue = inputValue.replace(/(?:^|\s)\S/g, function(a) {
+                return a.toUpperCase();
+            });
+
+            $(this).val(capitalizedValue).addClass('capitalize-first');
         });
     });
 </script>

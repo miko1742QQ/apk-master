@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\DaftarKaryawanModel;
 use App\Models\DaftarPenggunaModel;
 use App\Models\DaftarPendikModel;
+use App\Models\DaftarManagementModel;
 
 class DaftarPendikController extends BaseController
 {
     protected $karyawanModel;
     protected $penggunaModel;
     protected $pendikModel;
+    protected $managementModel;
 
     public function __construct()
     {
         $this->karyawanModel = new DaftarKaryawanModel();
         $this->penggunaModel = new DaftarPenggunaModel();
         $this->pendikModel = new DaftarPendikModel();
+        $this->managementModel = new DaftarManagementModel();
     }
 
     public function index()
@@ -24,7 +27,15 @@ class DaftarPendikController extends BaseController
         $data['title'] = 'Daftar Pendik';
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['karyawan'] = $this->karyawanModel->findAll();
-        $data['pendik'] = $this->pendikModel->findAll();
+        $data['sekolah'] = $this->managementModel->findAll();
+        $npsn = $data['datauser']['npsn'];
+
+        if ($npsn == '00000000') {
+            $data['pendik'] = $this->pendikModel->getDataPendikWithManagement();
+        } else {
+            $data['pendik'] = $this->pendikModel->getDataPendikWithManagement($npsn);
+        }
+
         return view('daftar_pendik', $data);
     }
 
@@ -34,6 +45,7 @@ class DaftarPendikController extends BaseController
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['karyawan'] = $this->karyawanModel->findAll();
         $data['pendik'] = $this->pendikModel->findAll();
+        $data['jenisptk'] = $this->pendikModel->getJenisPTK();
         return view('create_pendik', $data);
     }
 
@@ -100,6 +112,14 @@ class DaftarPendikController extends BaseController
                     'min_length' => 'Minimal Nomor Telepon 8 Karakter',
                 ],
             ],
+            'email' => [
+                'rules' => 'required|valid_email|max_length[100]',
+                'errors' => [
+                    'required' => 'Email harus diisi.',
+                    'valid_email' => 'Format email tidak valid.',
+                    'max_length' => 'Panjang email tidak boleh melebihi 100 karakter.',
+                ],
+            ],
             'status_gtk' => [
                 'rules' => 'required',
                 'errors' => [
@@ -132,6 +152,12 @@ class DaftarPendikController extends BaseController
                 'rules' => 'permit_empty',
                 'errors' => [],
             ],
+            'jenis_ptk' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis PTK Tidak Boleh Kosong',
+                ],
+            ],
         ])) {
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
@@ -145,11 +171,14 @@ class DaftarPendikController extends BaseController
         $jekel = $this->request->getVar('jekel');
         $alamat = $this->request->getVar('alamat');
         $telp = $this->request->getVar('telp');
+        $email = $this->request->getVar('email');
         $status_gtk = $this->request->getVar('status_gtk');
         $nip = $this->request->getVar('nip');
         $nuptk = $this->request->getVar('nuptk');
         $tmt_tugas = $this->request->getVar('tmt_tugas');
         $tmt_pns = ($status_gtk == 'BOSDA' || $status_gtk == 'BOS') ? null : $this->request->getVar('tmt_pns');
+        $jenis_ptk = $this->request->getVar('jenis_ptk');
+        $status = 'aktif';
 
         $data = [
             'npsn' => $npsnSekolah,
@@ -161,11 +190,14 @@ class DaftarPendikController extends BaseController
             'jekel' => $jekel,
             'alamat' => $alamat,
             'telp' => $telp,
+            'email' => $email,
             'status_gtk' => $status_gtk,
             'nip' => $nip,
             'nuptk' => $nuptk,
             'tmt_tugas' => $tmt_tugas,
-            'tmt_pns' => $tmt_pns
+            'tmt_pns' => $tmt_pns,
+            'jenis_ptk' => $jenis_ptk,
+            'status' => $status
         ];
 
         if ($this->pendikModel->save($data) == true) {

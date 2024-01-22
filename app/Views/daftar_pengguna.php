@@ -2,37 +2,26 @@
 
 <?= $this->section('page-content'); ?>
 
-<?php if (session()->getFlashdata('error')) { ?>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Maaf,</strong> <?= session()->getFlashdata('error'); ?>.
+<?php if (session()->getFlashdata('error') || session()->getFlashdata('success')) : ?>
+    <div class="alert <?= session()->getFlashdata('error') ? 'alert-warning' : 'alert-success' ?> alert-dismissible fade show" role="alert">
+        <strong><?= session()->getFlashdata('error') ? 'Maaf' : 'Berhasil' ?>,</strong> <?= session()->getFlashdata('error') ?: session()->getFlashdata('success'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <script>
-        sembunyikanAlert(); // Panggil fungsi untuk alert kesalahan
+        sembunyikanAlert(); // Panggil fungsi untuk alert
     </script>
-<?php } ?>
-
-<?php if (session()->getFlashdata('success')) { ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Berhasil,</strong> <?= session()->getFlashdata('success'); ?>.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <script>
-        sembunyikanAlert(); // Panggil fungsi untuk alert keberhasilan
-    </script>
-<?php } ?>
-
+<?php endif; ?>
 
 <div class="card shadow">
     <div class="row card-header p-2 m-0">
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6">
-            <h4 class="py-2 mt-2">Daftar Pengguna</h4>
+            <h4 class="py-2 mt-2">Daftar Akses Login</h4>
         </div>
 
         <div class="col-lg-6 col-xl-6 col-md-6 col-xs-6 col-sm-6 col-6" align="right">
             <a href="../create_pengguna" class="btn btn-outline-primary btn-sm btn-icon-split mt-2">
                 <span class="icon"><i class="fas fa-plus"></i></span>
-                <span class="p-1">Add Pengguna</span>
+                <span class="p-1">Add Akses Login</span>
             </a>
         </div>
     </div>

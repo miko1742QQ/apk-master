@@ -60,7 +60,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="foto" class="form-label"><b>Foto Profile</b></label>
-                            <input type="file" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" id="foto" name="foto">
+                            <input type="file" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" id="foto" name="foto" accept=".png, .jpeg">
                             <div class="invalid-feedback">
                                 <?= session('validation.foto'); ?>
                             </div>

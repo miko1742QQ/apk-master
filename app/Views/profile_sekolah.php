@@ -2,25 +2,15 @@
 
 <?= $this->section('page-content'); ?>
 
-<?php if (session()->getFlashdata('error')) { ?>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Maaf,</strong> <?= session()->getFlashdata('error'); ?>.
+<?php if (session()->getFlashdata('error') || session()->getFlashdata('success')) : ?>
+    <div class="alert <?= session()->getFlashdata('error') ? 'alert-warning' : 'alert-success' ?> alert-dismissible fade show" role="alert">
+        <strong><?= session()->getFlashdata('error') ? 'Maaf' : 'Berhasil' ?>,</strong> <?= session()->getFlashdata('error') ?: session()->getFlashdata('success'); ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <script>
-        sembunyikanAlert(); // Panggil fungsi untuk alert kesalahan
+        sembunyikanAlert(); // Panggil fungsi untuk alert
     </script>
-<?php } ?>
-
-<?php if (session()->getFlashdata('success')) { ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Berhasil,</strong> <?= session()->getFlashdata('success'); ?>.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <script>
-        sembunyikanAlert(); // Panggil fungsi untuk alert keberhasilan
-    </script>
-<?php } ?>
+<?php endif; ?>
 
 <div class="card shadow">
     <?php if ($profilesekolah != null) : ?>

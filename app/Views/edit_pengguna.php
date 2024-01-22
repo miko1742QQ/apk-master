@@ -2,17 +2,17 @@
 
 <?= $this->section('page-content'); ?>
 
-<div class="card shadow">
-    <div class="row card-header p-2 m-0">
-        <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
-            <h4 class="mt-2">Edit Data Pengguna</h4>
-        </div>
-    </div>
+<form method="POST" action="<?= base_url('update_pengguna/' . $user['id']); ?>">
+    <?= csrf_field(); ?>
 
-    <div class="card-body">
-        <!-- Basic Layout -->
-        <form method="POST" action="<?= base_url('update_pengguna/' . $user['id']); ?>">
-            <?= csrf_field(); ?>
+    <div class="card shadow mb-3">
+        <div class="row card-header p-2 m-0">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
+                <h4 class="mt-2">Data Akses Login</h4>
+            </div>
+        </div>
+
+        <div class="card-body">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="force_pass_reset" id="force_pass_reset" value="0">
             <input type="hidden" name="emailLama" value="<?= $user['email']; ?>">
@@ -108,29 +108,30 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="card shadow">
+        <div class="card-body">
             <button type="submit" class="btn btn-outline-warning btn-sm btn-icon-split">
                 <span class="icon "><i class="fas fa-save"></i></span>
                 <span class="text p-1">Update</span>
             </button>
 
             <a href="../daftar_pengguna" class="btn btn-outline-secondary btn-sm btn-icon-split">
-                <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                 <span class="text p-1">Kembali</span>
             </a>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 
 <script>
     $(document).ready(function() {
-        $('#nik').select2();
-        $('#id_role').select2();
-        $('#active').select2();
-
-        $('#nikdisable').select2();
-        $('#id_roledisable').select2();
-        $('#activedisable').select2();
+        $('#nik, #id_role, #active, #nikdisable, #id_roledisable, #activedisable').select2({
+            placeholder: "Pilih Opsi",
+            allowClear: true
+        });
     });
 </script>
 <?= $this->endSection(); ?>

@@ -7,6 +7,9 @@ use App\Models\DaftarKaryawanEditModel;
 use App\Models\DaftarPenggunaModel;
 use App\Models\DaftarPenggunaEditModel;
 use App\Models\DaftarManagementModel;
+use App\Models\DaftarPendikModel;
+use App\Models\DaftarTendikModel;
+use App\Models\DaftarSiswaModel;
 use Myth\Auth\Password;
 
 class Home extends BaseController
@@ -17,6 +20,9 @@ class Home extends BaseController
     protected $penggunaEditModel;
     protected $managementModel;
     protected $profilesekolahModel;
+    protected $pendikModel;
+    protected $tendikModel;
+    protected $siswaModel;
 
     public function __construct()
     {
@@ -26,6 +32,9 @@ class Home extends BaseController
         $this->penggunaEditModel = new DaftarPenggunaEditModel();
         $this->managementModel = new DaftarManagementModel();
         $this->profilesekolahModel = new DaftarManagementModel();
+        $this->pendikModel = new DaftarPendikModel();
+        $this->tendikModel = new DaftarTendikModel();
+        $this->siswaModel = new DaftarSiswaModel();
     }
     public function index(): string
     {
@@ -40,6 +49,10 @@ class Home extends BaseController
         $data['management'] = $this->managementModel->where(['nik' => user()->nik])->first();
         $data['management1'] = $this->managementModel->findAll();
         $data['profilesekolah'] = $this->profilesekolahModel->where(['nik' => user()->nik])->first();
+        $data['total_pendik'] = $this->pendikModel->findAll();
+        $data['total_tendik'] = $this->tendikModel->findAll();
+        $data['total_siswa'] = $this->siswaModel->findAll();
+
         return view('dashboard', $data);
     }
 

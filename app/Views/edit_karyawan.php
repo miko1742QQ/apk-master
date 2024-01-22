@@ -2,17 +2,17 @@
 
 <?= $this->section('page-content'); ?>
 
-<div class="card shadow">
-    <div class="row card-header p-2 m-0">
-        <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
-            <h4 class="mt-2">Edit Data Konsumen</h4>
-        </div>
-    </div>
+<form method="POST" action="<?= base_url('update_karyawan/' . $datakaryawan['id_karyawan']); ?>" enctype="multipart/form-data">
+    <?= csrf_field(); ?>
 
-    <div class="card-body">
-        <!-- Basic Layout -->
-        <form method="POST" action="<?= base_url('update_karyawan/' . $datakaryawan['id_karyawan']); ?>" enctype="multipart/form-data">
-            <?= csrf_field(); ?>
+    <div class="card shadow mb-3">
+        <div class="row card-header p-2 m-0">
+            <div class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 col-12">
+                <h4 class="mt-2">Data Konsumen</h4>
+            </div>
+        </div>
+
+        <div class="card-body">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="nikLama" value="<?= $datakaryawan['nik']; ?>">
             <input type="hidden" name="npsnLama" value="<?= $datakaryawan['npsn']; ?>">
@@ -77,17 +77,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="card shadow">
+        <div class="card-body">
             <button type="submit" class="btn btn-outline-warning btn-sm btn-icon-split">
                 <span class="icon "><i class="fas fa-save"></i></span>
                 <span class="text p-1">Update</span>
             </button>
 
             <a href="../daftar_karyawan" class="btn btn-outline-secondary btn-sm btn-icon-split">
-                <span class="icon "><i class="fas fa-sign-out-alt"></i></span>
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                 <span class="text p-1">Kembali</span>
             </a>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 <?= $this->endSection(); ?>
