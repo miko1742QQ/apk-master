@@ -91,14 +91,8 @@ class DaftarSiswaController extends BaseController
     public function downloadExcel()
     {
         $filename = 'template_siswa.xlsx';
-
-        // Lokasi file Excel
         $filepath = FCPATH . 'unduhan/' . $filename;
-
-        // Mendapatkan objek response
         $response = service('response');
-
-        // Unduh file menggunakan metode download
         return $response->download($filepath, NULL)->setFileName($filename);
     }
 
@@ -245,15 +239,13 @@ class DaftarSiswaController extends BaseController
                     'mime_in' => 'Berkas harus berupa gambar',
                 ],
             ],
+
         ])) {
             // return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 
-        // ambil foto
         $fileFoto = $this->request->getFile('foto');
-        // ambil nama file foto
         $namaFoto = $fileFoto->getRandomName();
-        // pindahkan file ke folder img
         $fileFoto->move('siswa', $namaFoto);
 
         $npsnSekolah = $this->request->getVar('npsnSekolah');

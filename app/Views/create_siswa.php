@@ -47,7 +47,7 @@
 
             <div class="mb-3">
                 <label for="email" class="form-label"><b>Email</b></label>
-                <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" placeholder="Silakan masukkan email siswa" maxlength="100" value="<?= old('email'); ?>">
+                <input type="email" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" placeholder="Silakan masukkan email siswa" maxlength="100" value="<?= old('email'); ?>">
                 <div class="invalid-feedback">
                     <?= session('validation.email'); ?>
                 </div>
@@ -55,7 +55,7 @@
 
             <div class="mb-3">
                 <label for="foto" class="form-label"><b>Foto</b></label>
-                <input type="file" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" id="foto" name="foto" accept=".png, .jpeg">
+                <input type="file" class="form-control <?php if (session('validation.foto')) : ?> is-invalid <?php endif ?>" id="foto" name="foto" accept=".png, .jpeg" value="<?= old('foto'); ?>" required>
                 <div class="invalid-feedback">
                     <?= session('validation.foto'); ?>
                 </div>

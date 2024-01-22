@@ -35,14 +35,14 @@
                         </div>
                         <div class="mb-3">
                             <label for="nama_karyawan" class="form-label"><b>Nama User</b></label>
-                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" placeholder="Masukkan nama lengkap user">
+                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" placeholder="Masukkan nama lengkap user" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '').slice(0, 100)" maxlength="100">
                             <div class="invalid-feedback">
                                 <?= session('validation.nama_karyawan'); ?>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label"><b>Email</b></label>
-                            <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>" placeholder="Masukkan email user">
+                            <input type="email" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" value="<?= $user['email']; ?>" placeholder="Masukkan email user">
                             <div class="invalid-feedback">
                                 <?= session('validation.email'); ?>
                             </div>
@@ -52,7 +52,7 @@
                                 <label class="form-label" for="password_hash"><b>Password</b></label>
                             </div>
                             <div class="input-group input-group-merge">
-                                <input type="password" id="password_hash" class="form-control <?php if (session('validation.password_hash')) : ?> is-invalid <?php endif ?>" name="password_hash" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" value="<?= old('password_hash'); ?>">
+                                <input type="password" id="password_hash" class="form-control <?php if (session('validation.password_hash')) : ?> is-invalid <?php endif ?>" name="password_hash" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" value="<?= old('password_hash'); ?>" maxlength="15">
                                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 <div class="invalid-feedback">
                                     <?= session('validation.password_hash'); ?>

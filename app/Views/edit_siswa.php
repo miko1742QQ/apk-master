@@ -89,7 +89,7 @@
 
                     <div class="mb-2">
                         <label for="email" class="form-label"><b>Email</b></label>
-                        <input type="text" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" placeholder="Silakan masukkan email siswa" maxlength="100" value="<?= old('email'); ?>">
+                        <input type="email" class="form-control <?php if (session('validation.email')) : ?> is-invalid <?php endif ?>" id="email" name="email" placeholder="Silakan masukkan email siswa" maxlength="100" value="<?= old('email'); ?>">
                         <div class="invalid-feedback">
                             <?= session('validation.email'); ?>
                         </div>
