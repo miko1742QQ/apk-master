@@ -58,7 +58,7 @@ class Home extends BaseController
 
     public function my_profile($nik)
     {
-        $data['title'] = 'Profile Karyawan';
+        $data['title'] = 'Profile User';
         $data['datauser'] = $this->karyawanModel->where(['nik' => user()->nik])->first();
         $data['user'] = $this->penggunaModel->where(['nik' => $nik])->first();
 
@@ -68,6 +68,12 @@ class Home extends BaseController
     public function update_profile($nik)
     {
         if (!$this->validate([
+            'nama_karyawan' => [
+                'rules' => 'max_length[100]|permit_empty',
+                'errors' => [
+                    'max_length' => 'Nama User Maksimal 100 Karakter',
+                ],
+            ],
             'email' => [
                 'rules' => 'permit_empty|valid_emails|max_length[50]',
                 'errors' => [
@@ -102,6 +108,13 @@ class Home extends BaseController
             $namaFoto = $this->request->getVar('fotoLama');
         }
 
+        $nama          = $this->request->getVar('nama_karyawan');
+        if ($nama == null) {
+            $namaUser = $this->request->getVar('nama_karyawanLama');
+        } else {
+            $namaUser = $this->request->getVar('nama_karyawan');
+        }
+
         $email          = $this->request->getVar('email');
         if ($email == null) {
             $namaEmail = $this->request->getVar('emailLama');
@@ -124,10 +137,12 @@ class Home extends BaseController
         }
 
         $dataKaryawan  = [
+            'nama_karyawan' => $namaUser,
             'foto' => $namaFoto,
         ];
 
         $dataPengguna  = [
+            'nam' => $namaEmail,
             'email' => $namaEmail,
             'password' => $namaPassword,
             'password_hash' => $namaPasswordHash,

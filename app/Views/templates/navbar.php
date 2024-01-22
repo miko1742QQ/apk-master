@@ -66,7 +66,7 @@
                                     <small class="text-muted">
                                         <?php if (in_groups('Administrator')) : ?>Administrator<?php endif ?>
                                         <?php if (in_groups('Pimpinan')) : ?>Pimpinan<?php endif ?>
-                                        <?php if (in_groups('Konsumen')) : ?>Konsumen<?php endif ?>
+                                        <?php if (in_groups('Konsumen')) : ?>User<?php endif ?>
                                     </small>
                                 </div>
                             </div>

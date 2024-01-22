@@ -14,6 +14,7 @@
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="fotoLama" value="<?= $datauser['foto']; ?>">
+            <input type="hidden" name="nama_karyawanLama" value="<?= $datauser['nama_karyawan']; ?>">
             <input type="hidden" name="emailLama" value="<?= $user['email']; ?>">
             <input type="hidden" name="passwordLama" value="<?= $user['password']; ?>">
             <input type="hidden" name="password_hashLama" value="<?= $user['password_hash']; ?>">
@@ -21,7 +22,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3 col-xl-3 col-md-3 col-xs-12 col-sm-12 col-12" align="center">
-                        <img src="../img/<?= $datauser['foto']; ?>" alt="" style="width: 250px; height: 350px;">
+                        <img src="../img/<?= $datauser['foto']; ?>" alt="" style="width: 250px; height: 350px; border-radius: 10px;">
                     </div>
 
                     <div class="col-lg-9 col-xl-9 col-md-9 col-xs-12 col-sm-12 col-12">
@@ -34,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="nama_karyawan" class="form-label"><b>Nama Konsumen</b></label>
-                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>" disabled>
+                            <input type="text" class="form-control <?php if (session('validation.nama_karyawan')) : ?> is-invalid <?php endif ?>" id="nama_karyawan" name="nama_karyawan" value="<?= $datauser['nama_karyawan']; ?>">
                             <div class="invalid-feedback">
                                 <?= session('validation.nama_karyawan'); ?>
                             </div>

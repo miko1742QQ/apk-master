@@ -86,7 +86,14 @@ $routes->put('/update_siswa/(:num)', 'DaftarSiswaController::update_siswa/$1', [
 
 $routes->get('/delete_pendik/(:num)', 'DaftarPendikController::delete_pendik/$1', ['filter' => 'login']);
 $routes->get('/delete_tendik/(:num)', 'DaftarTendikController::delete_tendik/$1', ['filter' => 'login']);
-$routes->get('/delete_siswa/(:num)', 'DaftarSiswaController::delete_siswa/$1', ['filter' => 'login']);
+$routes->post('/delete_siswa/(:num)', 'DaftarSiswaController::delete_siswa/$1', ['filter' => 'login']);
+
+// Kumpulan Eksport
+$routes->get('/export_siswa', 'DaftarSiswaController::export_siswa', ['filter' => 'login']);
+
+// Kumpulan Import
+$routes->post('/import_siswa', 'DaftarSiswaController::import_siswa', ['filter' => 'login']);
+$routes->get('/download_excel', 'DaftarSiswaController::downloadExcel');
 /*
 * --------------------------------------------------------------------
 * Additional Routing

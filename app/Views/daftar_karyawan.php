@@ -8,7 +8,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <script>
-        sembunyikanAlert(); // Panggil fungsi untuk alert
+        sembunyikanAlert();
     </script>
 <?php endif; ?>
 

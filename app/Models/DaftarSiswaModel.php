@@ -11,69 +11,11 @@ class DaftarSiswaModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = [
         'npsn',
+        'lembaga',
         'nipd',
-        'nisn',
-        'nik',
         'nama_siswa',
-        'tempat_lahir',
-        'tanggal_lahir',
-        'agama',
-        'jekel',
-        'alamat',
-        'jenis_tinggal',
-        'alat_transportasi',
-        'telp',
-        'rombel',
-        'nomor_peserta_un',
-        'nomor_seri_ijazah',
-        'skhun',
-        'nomor_regis_kk',
-        'nomor_kk',
-        'penerima_kps',
-        'layak_pip',
-        'penerima_kip',
-        'nomor_kps',
-        'alasan_pip',
-        'nomor_kip',
-        'nama_kip',
-        'nomor_kks',
-
-        'kebutuhan_khusus',
-        'sekolah_asal',
-        'jumlah_saudara_kandung',
-        'anak_ke',
-        'berat_badan',
-        'tinggi_badan',
-        'lingkar_kepala',
-        'lintang',
-        'bujur',
-        'jarak_sekolah',
-
-        'nik_ayah',
-        'namaortu_ayah',
-        'tahunlahir_ayah',
-        'pendidikan_ayah',
-        'pekerjaan_ayah',
-        'penghasilan_ayah',
-
-        'nik_ibu',
-        'namaortu_ibu',
-        'tahunlahir_ibu',
-        'pendidikan_ibu',
-        'pekerjaan_ibu',
-        'penghasilan_ibu',
-
-        'nik_wali',
-        'namawali',
-        'tahunlahir_wali',
-        'pekerjaan_wali',
-        'pendidikan_wali',
-        'penghasilan_wali',
-
-        'bank',
-        'nomor_rekening',
-        'nama_rekening',
-
+        'email',
+        'foto',
         'status',
     ];
 
@@ -142,6 +84,14 @@ class DaftarSiswaModel extends Model
         return $this->db->table('kebutuhankhusus')
             ->where('status', 'aktif')
             ->orderBy('nama_kebutuhankhusus', 'ASC')
+            ->get()->getResultArray();
+    }
+
+    public function getLembaga()
+    {
+        return $this->db->table('lembaga')
+            ->where('status', 'aktif')
+            ->orderBy('nama_lembaga', 'ASC')
             ->get()->getResultArray();
     }
 }
